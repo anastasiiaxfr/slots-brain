@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+{{ partial "page-title.html" . }}
+
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 page-breadcrumb py-3">
+        {{ partial "breadcrumbs.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <article class="col-lg-9">
+        <div id="search-results"></div>
+
+
+        <script id="search-result-template" type="text/x-js-template">
+
+          <div class="py-4 border-bottom" id="summary-${key}">
+            <h4 class="h5"><a href="${link}">${title}</a></h4>
+            <p class="mb-0 pr-3"><a href="${link}">${snippet}</a> <a href="${link}" class="btn-link-sm"> Read more... </a></p>
+            
+            ${ isset tags }<p>Tags: ${tags}</p>${ end }
+            ${ isset categories }<p>Categories: ${categories}</p>${ end }
+          </div>
+
+        </script>
+
+        <section class="my-4">
+          {{ partial "_prev-next.html" . }}
+        </section>
+        <section>
+          <hr>
+          {{ partial "_news-related-inline.html" . }}
+        </section>
+
+      </article>
+      <aside class="col-lg-3">
+       {{ partial "_main-sidebar.html" . }}
+     </aside>
+   </div>
+ </div>
+</section>
+
+{{ end }}

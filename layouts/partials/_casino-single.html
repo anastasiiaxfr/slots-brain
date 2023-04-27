@@ -1,0 +1,66 @@
+<section class="row justify-content-center">
+
+	<div class="col-12">
+
+		{{ partial "_casino-table.html" . }}
+
+	</div>
+</section>
+
+{{ if .Content }}
+<article class="col-md-8 mx-auto py-4 py-sm-5">
+	{{ $body := replace .Content .Summary "" }}
+
+	{{ if .Summary }}
+	<section class="mx-auto mb-4">
+		<h1 class="mb-3"> {{ .Title }} </h1>
+		{{ .Summary | plainify }}
+	</section>
+	{{ end  }}
+
+	{{ partial "_show-more.html" . }}
+
+	{{ if ( .Params.good | or .Params.bad )  }}
+
+	<section class="mx-auto mt-4">
+		<div class="row">
+
+			{{ if .Params.good }} 
+			<div class="col-lg-6 affiliate-list mb-3">
+
+				<h3 class="h5 mb-3">
+					{{ i18n "benefits" }}
+				</h3>
+
+				{{ range .Params.good }}
+				<p class="my-2"> <small class="ti-check-box mr-2"> </small>{{ . }} </p>
+				{{ end }}
+
+			</div>
+			{{ end }}
+
+			{{ if .Params.bad }}
+			<div class="col-lg-6 affiliate-list mb-3">
+
+				<h3 class="h5 mb-3">
+					{{ i18n "negatives" }}
+				</h3>
+
+				{{ range .Params.bad }}
+				<p class="my-2 text">
+					<small class="ti-alert mr-2"></small> {{ . }}
+				</p>
+
+				{{ end }}
+
+			</div>
+			{{ end }}
+
+		</div>
+	</section>
+	{{ end }}
+</article>
+{{ end }}
+
+
+

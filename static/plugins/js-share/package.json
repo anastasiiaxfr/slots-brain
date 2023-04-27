@@ -1,0 +1,63 @@
+{
+  "_from": "js-share",
+  "_id": "js-share@2.3.2",
+  "_inBundle": false,
+  "_integrity": "sha512-gHYhv8CyfEWjoGmqodX1KSc0LnRcdswx3cxyiM/vutnsQ1lbUC4HrPt0O9Fukz7QCxCoHSw/YqVJpZdoOc4ogA==",
+  "_location": "/js-share",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "js-share",
+    "name": "js-share",
+    "escapedName": "js-share",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/js-share/-/js-share-2.3.2.tgz",
+  "_shasum": "c0567412b2a646830287edf6aa385ba18af53cd2",
+  "_spec": "js-share",
+  "_where": "D:\\GIT\\sltsbrain\\static\\plugins",
+  "author": {
+    "name": "Dmitry Elfimov",
+    "email": "elfimov@gmail.com",
+    "url": "https://www.elfimov.ru/"
+  },
+  "bugs": {
+    "url": "https://github.com/delfimov/JS-Share/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Basic javascript social share library",
+  "devDependencies": {},
+  "homepage": "https://github.com/delfimov/JS-Share",
+  "keywords": [
+    "social",
+    "share",
+    "sharing",
+    "browser",
+    "amd",
+    "commonjs",
+    "client",
+    "js-share"
+  ],
+  "license": "MIT",
+  "main": "src/jsshare.js",
+  "name": "js-share",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/delfimov/JS-Share.git"
+  },
+  "scripts": {
+    "postversion": "git push && git push --tags && npm publish",
+    "preversion": "",
+    "version": ""
+  },
+  "version": "2.3.2"
+}

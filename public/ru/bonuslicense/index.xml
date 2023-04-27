@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BonusLicense on Slotman Brain</title>
+    <link>https://examplesite.com/ru/bonuslicense/</link>
+    <description>Recent content in BonusLicense on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/ru/bonuslicense/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Without an official license</title>
+      <link>https://examplesite.com/ru/bonuslicense/without-an-official-license/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuslicense/without-an-official-license/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

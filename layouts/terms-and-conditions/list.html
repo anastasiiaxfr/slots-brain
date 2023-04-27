@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="page-terms-conditions">
+  {{ partial "page-title.html" . }}
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 page-breadcrumb py-3">
+          {{ partial "breadcrumbs.html" . }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="single-product pt-4 pt-md-5">
+    <div class="container">
+      {{.Content }}
+      <hr class="mt-5">
+      <a href="{{ .Site.BaseURL }}" class="btn-link-md"> <small class="ti-angle-left"></small> <span class="ml-2">{{ i18n "btn-to-home" }}</span> </a>
+
+    </div>
+  </section>
+</article>
+{{ end }}

@@ -1,0 +1,154 @@
+<article class="page-bonuses">
+	{{ partial "page-title.html" . }}
+
+	{{ $pages := first 40 (where .Site.RegularPages "Type" "bonus") }}
+
+
+	<section class="section section-bonuses">
+		<div class="container">
+			<main class="row">
+				<article class="col-md-9">
+
+					<section class="slider-wrap pb-0 mb-4">
+
+						{{ $cnt1 := slice }}
+						{{ range $a, $pages }}
+						{{ if (in .Params.bonusAllowedGEO "UA") }}
+						{{ $cnt1 = $cnt1 | append $a }}
+
+						{{ end }}
+						{{ end }}
+
+						<hgroup class="row mx-0 align-items-center justify-content-between mb-3">
+							<h4 class="my-0"> <small class="miw-25 ti-bookmark color-main"></small> {{ i18n "txt28" }} <span class="country">Ukraine</span> [{{ len $cnt1 }}]  </h4>
+							<div class="slider-games-nav">
+								<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+								<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+							</div>
+						</hgroup>
+						<div class="slider-bonuses-all-geo">
+							{{ range $pages }}
+							{{ if (in .Params.bonusAllowedGEO "UA") }}
+							
+							<div class="col-lg-4 col-sm-12 col-md-6">
+								{{ partial "_bonus-card.html" . }}
+							</div>
+
+							{{ end }}
+							{{ end }}
+						</div>
+					</section>
+
+					<section class="slider-wrap pb-0 mb-4">
+						{{ $cnt2 := slice }}
+						{{ range $b, $val := first 16 $pages }}
+						{{ $cnt2 = $cnt2 | append $b }}
+						{{ end }}
+						<hgroup class="row align-items-center justify-content-between mx-0 mb-3">
+							<h2 class="h4 my-0"> 
+								<small class="miw-25 ti-bookmark color-main"></small> {{ i18n "txt27"}} [{{ len $cnt2 }}]  
+							</h2>
+							<div class="slider-games-nav">
+								<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+								<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+							</div>
+						</hgroup>
+
+						<div class="slider-bonuses-all-new">
+							{{ range first 16 $pages }}
+							<div class="col-lg-4 col-sm-12 col-md-6">
+								{{ partial "_bonus-card.html" . }}
+							</div>
+							{{ end }}
+						</div>
+
+					</section>
+
+					{{ $bonusCategories := slice }}
+					{{ $bonusCategory := slice }}
+
+					{{ range $pages }}
+
+					{{ $bonusCategories = $bonusCategories | append .Params.bonus }} 
+
+					{{ end }}
+
+					{{ $bonusCategories = uniq $bonusCategories | sort }}
+
+					{{ range $i, $cat := $bonusCategories }}
+					{{ $bonusCategory := . }}
+
+					{{ $bonusNumb := slice }}
+
+					{{ $cnt := slice }}
+					{{ range  $d, $value := first 40  $pages }}
+					{{ if (in .Params.bonus $bonusCategory) }}
+					{{ $cnt = $cnt | append $i }}
+					{{ end }}
+					{{ end }}
+					{{ $bonusNumb = $bonusNumb | append (len $cnt) }}
+
+					{{ if gt (len $cnt) 1 }}
+
+					<section class="slider-wrap pb-0 mb-3">
+
+						<hgroup class="row align-items-center justify-content-between mx-0 mb-3 px-1">
+							<h2 class="h4 my-0">
+								<small class="miw-25 ti-star color-main"></small> {{ . | title }} 
+								{{ $bonusNumb }} 
+							</h2>
+							<div class="slider-games-nav">
+								<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+								<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+							</div>
+						</hgroup>
+						<div class="slider-bonuses-all-{{$cat}} mb-2" id="all-{{ $cat }}">
+
+							{{ range  $value := first 40  $pages }}
+							{{ if (in .Params.bonus $bonusCategory) }}
+							<div class="">
+								{{ partial "_bonus-card.html" . }}
+
+							</div>
+
+							{{ end }}
+							{{ end }}
+
+
+							<!--  {{ len $cnt }} -->
+						</div>
+					</section>
+
+					{{ end }}
+					{{ end }}
+
+				</article>
+				<aside class="col-md-3">
+					
+					{{ partial "_bonus-sidebar.html" . }}
+
+    <!--     <h3 class="h4 mb-3">
+            Bonuses Payment Method
+          </h3>
+
+          <h3 class="h4 mb-3">
+            Bonuses License
+          </h3>
+
+          <h3 class="h4 mb-3">
+            ALLOWED COUNTRIES
+          </h3>
+
+          <h3 class="h4 mb-3">
+            Bonuses by Providers
+          </h3>
+          <h3 class="h4 mb-3">
+            Bonuses by Casinos
+        </h3> -->
+        
+    </aside>
+</main>
+</div>
+</section>
+</article>
+

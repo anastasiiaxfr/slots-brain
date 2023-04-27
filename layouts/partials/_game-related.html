@@ -1,0 +1,49 @@
+{{ $pagesGames := first 40 (where .Site.RegularPages "Type" "game") }}
+
+
+<section class="slider-wrap pb-0">
+
+	<div class="row mx-0 align-items-center justify-content-between mb-3">
+		<h4 class="my-0"> 
+			{{ i18n "txt21" }}
+		</h4>
+		<div class="slider-nav my-2 my-md-0 row">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</div>
+	<div class="slider-related row">
+		
+      {{ range .Site.Taxonomies.games }}
+
+      <div class="col-lg-3 col-12 col-md-6 col-sm-6">
+        <div class="product mb-0">
+          <div class="product-wrap">
+
+            <a class="product-content product-cat" href="{{ .Page.Permalink }}" rel="tag">
+              <div class="product-info">
+               <div class="tag-logo">
+                 <i class="ti-game"></i>
+               </div>
+               <h2 class="product-title mb-0 mt-2"> {{ .Page.Title }} </h2>
+               <nav class="tags">                
+                <span class="tag">{{ .Count }}</span>
+              </nav>
+            </div>    
+          </a>
+
+          <a class="product-hover-overlay" href="{{ .Page.Permalink }}">
+            <span class="snipcart-add-item" >
+              <i class="ti-control-forward"></i>
+            </span>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+    {{ end }}
+
+		
+	</div>
+</section>

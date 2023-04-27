@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>All Games on Slotman Brain</title>
+    <link>https://examplesite.com/game/</link>
+    <description>Recent content in All Games on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/game/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>new</title>
+      <link>https://examplesite.com/game/new/</link>
+      <pubDate>Sun, 24 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/game/new/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jackpot</title>
+      <link>https://examplesite.com/game/jackpot/</link>
+      <pubDate>Sat, 23 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/game/jackpot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>popular</title>
+      <link>https://examplesite.com/game/popular/</link>
+      <pubDate>Fri, 22 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/game/popular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>live</title>
+      <link>https://examplesite.com/game/live/</link>
+      <pubDate>Thu, 21 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/game/live/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>other</title>
+      <link>https://examplesite.com/game/other/</link>
+      <pubDate>Sun, 17 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/game/other/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tops</title>
+      <link>https://examplesite.com/game/tops/</link>
+      <pubDate>Sun, 17 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/game/tops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>table</title>
+      <link>https://examplesite.com/game/table/</link>
+      <pubDate>Sun, 10 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/game/table/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slot</title>
+      <link>https://examplesite.com/game/slot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://examplesite.com/game/slot/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

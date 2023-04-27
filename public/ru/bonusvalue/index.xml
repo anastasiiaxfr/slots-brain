@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BonusValue on Slotman Brain</title>
+    <link>https://examplesite.com/ru/bonusvalue/</link>
+    <description>Recent content in BonusValue on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/ru/bonusvalue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>100</title>
+      <link>https://examplesite.com/ru/bonusvalue/100/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusvalue/100/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>200</title>
+      <link>https://examplesite.com/ru/bonusvalue/200/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusvalue/200/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>250</title>
+      <link>https://examplesite.com/ru/bonusvalue/250/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusvalue/250/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>300</title>
+      <link>https://examplesite.com/ru/bonusvalue/300/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusvalue/300/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>350</title>
+      <link>https://examplesite.com/ru/bonusvalue/350/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusvalue/350/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>400</title>
+      <link>https://examplesite.com/ru/bonusvalue/400/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusvalue/400/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

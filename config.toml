@@ -1,0 +1,650 @@
+######################## default configuration ####################
+baseURL = "/"
+#baseURL = "https://slotsbrain.com/"
+#publishDir = "/var/www/hugo/slotsbrain.com"
+publishDir = "public"
+
+
+
+languageCode = "en-us"
+title = "Slot Brain - The number one source for your casino news"
+#theme = "adrian-hugo"
+summaryLength = "20"
+paginate = 6
+
+
+
+disqusShortname = "slotsbrain-com" #get your shortname form : disqus.com
+#canonifyurls = true
+
+
+############################ Output ###############################
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+#page = ["HTML", "RSS"]
+#section = ["HTML", "RSS"]
+
+
+############################# Taxonomies ###########################
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+# Common
+# established = "established"
+
+# policy = "policy"
+# licences = "licences"
+
+# lang = "languages"
+
+# currencies = "currencies"
+# payments = "payments"
+
+# geo = "geo"
+# allowedGEO = "geo_allowed"
+# resrtictedGEO = "geo_resrticted"
+
+
+# Categories
+providers = "providers"
+casinos = "casinos"
+games = "games"
+bonuses = "bonus"
+#news = "news"
+
+
+
+
+
+############################# Plugins ##############################
+[params.plugins]
+
+# CSS Plugins
+[[params.plugins.css]]
+URL = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+URL = "plugins/themify-icons/themify-icons.css"
+[[params.plugins.css]]
+URL = "plugins/slick/slick.css"
+[[params.plugins.css]]
+URL = "plugins/slick/slick-theme.css"
+
+[[params.plugins.css]]
+URL = "plugins/icons-collection/font/flaticon.css"
+
+# JS Plugins
+[[params.plugins.js]]
+URL = "plugins/jQuery/jquery.min.js"
+[[params.plugins.js]]
+URL = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+URL = "plugins/SyoTimer/jquery.syotimer.min.js"
+[[params.plugins.js]]
+URL = "plugins/slick/slick.min.js"
+#[[params.plugins.js]]
+#URL = "https://cdn.snipcart.com/themes/v3.0.3/default/snipcart.js"
+#[[params.plugins.js]]
+#URL = "plugins/instafeed-js/instafeed.min.js"
+[[params.plugins.js]]
+URL = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+URL = "plugins/search/mark.js"
+[[params.plugins.js]]
+URL = "plugins/search/search.js"
+[[params.plugins.js]]
+URL = "plugins/js-share/src/jsshare.js"
+
+# [[params.plugins.js]]
+# URL = "plugins/sticky-sidebar/src/jquery.sticky-sidebar.js"
+############################## navigation ###############################
+[menu]
+
+[[menu.main]]
+name = "Casinos"
+URL = "casinos"
+weight = 1
+hasChildren = true
+
+[[menu.main]]
+parent = "Casinos"
+name = "All casinos"
+URL = "casinos"
+weight = 1
+
+[[menu.main]]
+parent = "Casinos"
+name = "New casinos"
+URL = "casinos/new"
+weight = 2
+
+[[menu.main]]
+parent = "Casinos"
+name = "Popular casinos"
+URL = "casinos/popular"
+weight = 3
+
+[[menu.main]]
+parent = "Casinos"
+name = "Mobile Casinos"
+URL = "casinos/mobile"
+weight = 4
+
+[[menu.main]]
+parent = "Casinos"
+name = "Crypto casinos"
+URL = "casinos/crypto"
+weight = 5
+
+[[menu.main]]
+parent = "Casinos"
+name = "Virtual Reality Casinos"
+URL = "casinos/virtual"
+weight = 6
+
+[[menu.main]]
+parent = "Casinos"
+name = "Progressive Jackpots"
+URL = "casinos/jackpot"
+weight = 7
+
+[[menu.main]]
+parent = "Casinos"
+name = "Live dealers"
+URL = "casinos/live"
+weight = 8
+
+[[menu.main]]
+parent = "Casinos"
+name = "Downloadable casinos"
+URL = "casinos/downloads"
+weight = 9
+
+[[menu.main]]
+parent = "Casinos"
+name = "Casino Blacklist"
+URL = "casinos/braking-bad"
+weight = 10
+#[[menu.main]]
+#parent = "Casinos"
+#name = "Casinos for $ country"
+#URL = "new-casinos"
+#[[menu.main]]
+#parent = "Casinos"
+#name = "Casinos for $ payment system"
+#URL = "new-casinos"
+
+
+[[menu.main]]
+name = "Games"
+URL = "games"
+weight = 2
+hasChildren = true
+
+[[menu.main]]
+parent = "Games"
+name = "All games"
+URL = "games"
+weight = 1
+
+[[menu.main]]
+parent = "Games"
+name = "New games"
+URL = "games/new"
+weight = 2
+
+[[menu.main]]
+parent = "Games"
+name = "Popular"
+URL = "games/popular"
+weight = 3
+
+[[menu.main]]
+parent = "Games"
+name = "Slots"
+URL = "games/slot"
+weight = 4
+
+[[menu.main]]
+parent = "Games"
+name = "Roulette"
+URL = "games/roulette"
+weight = 5
+
+[[menu.main]]
+parent = "Games"
+name = "Video Poker"
+URL = "games/video-poker"
+weight = 6
+
+[[menu.main]]
+parent = "Games"
+name = "Black Jack"
+URL = "games/black-jack"
+weight = 7
+
+[[menu.main]]
+parent = "Games"
+name = "Bingo"
+URL = "games/bingo"
+weight = 8
+
+[[menu.main]]
+parent = "Games"
+name = "Baccarat"
+URL = "games/baccarat"
+weight = 9
+
+[[menu.main]]
+parent = "Games"
+name = "Craps"
+URL = "games/craps"
+weight = 10
+
+[[menu.main]]
+parent = "Games"
+name = "Keno"
+URL = "games/keno"
+weight = 11
+
+[[menu.main]]
+parent = "Games"
+name = "Scratch games"
+URL = "games/scratch"
+weight = 11
+
+[[menu.main]]
+parent = "Games"
+name = "Jackpots"
+URL = "games/jackpot"
+weight = 12
+
+[[menu.main]]
+parent = "Games"
+name = "Table"
+URL = "games/table"
+weight = 13
+
+[[menu.main]]
+parent = "Games"
+name = "Live"
+URL = "games/live"
+weight = 14
+
+[[menu.main]]
+parent = "Games"
+name = "Other"
+URL = "games/other"
+weight = 15
+
+
+[[menu.main]]
+name = "Bonuses"
+URL = "bonus"
+weight = 3
+hasChildren = true
+
+[[menu.main]]
+parent = "Bonuses"
+name = "All bonuses"
+URL = "bonus"
+weight = 1
+
+[[menu.main]]
+parent = "Bonuses"
+name = "Welcome bonus"
+URL = "bonus/welcome"
+weight = 2
+
+[[menu.main]]
+parent = "Bonuses"
+name = "2nd deposit"
+URL = "bonus/2nd-deposit"
+weight = 3
+
+[[menu.main]]
+parent = "Bonuses"
+name = "3rd deposit"
+URL = "bonus/3rd-deposit"
+weight = 4
+
+[[menu.main]]
+parent = "Bonuses"
+name = "No deposit"
+URL = "bonus/no-deposit"
+weight = 5
+
+[[menu.main]]
+parent = "Bonuses"
+name = "Match deposit"
+URL = "bonus/match-deposit"
+weight = 6
+
+[[menu.main]]
+parent = "Bonuses"
+name = "Reload"
+URL = "bonus/reload"
+weight = 7
+
+[[menu.main]]
+parent = "Bonuses"
+name = "Cashback"
+URL = "bonus/cashback"
+weight = 8
+
+[[menu.main]]
+parent = "Bonuses"
+name = "Freespin"
+URL = "bonus/free-spins"
+weight = 9
+
+
+[[menu.main]]
+name = "Info"
+URL = "info"
+weight = 4
+hasChildren = true
+
+[[menu.main]]
+parent = "Info"
+name = "About Us"
+URL = "about"
+weight = 1
+
+[[menu.main]]
+parent = "Info"
+name = "Our company"
+URL = "our-company"
+weight = 2
+
+
+[[menu.main]]
+parent = "Info"
+name = "Affiliates"
+URL = "affiliates"
+weight = 3
+
+[[menu.main]]
+parent = "Info"
+name = "Affiliates Review"
+URL = "affiliates/review"
+weight = 4
+
+[[menu.main]]
+parent = "Info"
+name = "Providers"
+URL = "providers"
+weight = 5
+
+[[menu.main]]
+parent = "Info"
+name = "Legal"
+URL = "legal"
+weight = 6
+
+[[menu.main]]
+parent = "Info"
+name = "T&C"
+URL = "terms-and-conditions"
+weight = 7
+
+[[menu.main]]
+parent = "Info"
+name = "Sitemap"
+URL = "site-road"
+weight = 8
+
+
+[[menu.main]]
+name = "Guide"
+URL = "guide"
+weight = 5
+hasChildren = true
+
+[[menu.main]]
+parent = "Guide"
+name = "Faq"
+URL = "faq"
+
+
+
+[[menu.main]]
+parent = "Guide"
+name = "Knowledge Base"
+URL = "knowledge"
+
+
+#[[menu.main]]
+#name = "Blog & News"
+#URL = "news"
+#weight = 6
+#hasChildren = true
+
+#[[menu.main]]
+#parent = "Blog & News"
+#name = "Casino News"
+#URL = "news/casino"
+#weight = 1
+
+#[[menu.main]]
+#parent = "Blog & News"
+#name = "Casino Blog"
+#URL = "news/blog/casino"
+#weight = 2
+
+#[[menu.main]]
+#parent = "Blog & News"
+#name = "Promotions"
+#URL = "news/promotions"
+#weight = 3
+
+#[[menu.main]]
+#parent = "Blog & News"
+#name = "Events"
+#URL = "news/events"
+#weight = 4
+
+#[[menu.main]]
+#parent = "Blog & News"
+#name = "Big Win"
+#URL = "news/big-win"
+#weight = 5
+
+
+
+
+# footer menu
+[[menu.footer]]
+name = "Games"
+URL = "games"
+weight = 1
+
+[[menu.footer]]
+name = "Casinos"
+URL = "casinos"
+weight = 2
+
+[[menu.footer]]
+name = "Bonuses"
+URL = "bonus"
+weight = 3
+
+#[[menu.footer]]
+#name = "Providers"
+#URL = "providers"
+#weight = 4
+
+#[[menu.footer]]
+#name = "About"
+#URL = "about"
+#weight = 4
+
+[[menu.footer]]
+name = "Info"
+URL = "info"
+weight = 4
+hasChildren = true
+
+[[menu.footer]]
+name = "News"
+URL = "news"
+weight = 5
+hasChildren = true
+
+[[menu.footer]]
+name = "Guide"
+URL = "guide"
+weight = 6
+hasChildren = true
+#[[menu.footer]]
+#name = "Faq"
+#URL = "faq"
+#weight = 6
+
+
+[[menu.footer]]
+name = "T&C"
+URL = "terms-and-conditions"
+weight = 7
+
+
+
+#################### default parameters ################################
+[params]
+	game = ["DWARF MINE", "CONTACT", "BOOK OF REBIRTH", "BIG BAD WOLF", "VIKINGS GO BERZERK", "RISE OF OLYMPUSK", "THE DOG HOUSE", "Releasethe Kraken", "Ozwins Jackpots", "OHN HUNTER AND THE BOOK OF TUT", "Jackpot Raiders", "GREAT RHINO MEGAWAYS", "HOLMES AND THE STOLEN STONES", "DIVINE FORTUNE"]
+	games = ["Slot", "Jackpot", "Live", "Table", "Roulette", "Video poker", "Blackjack", "Bingo", "Baccarat", "Craps", "Keno", "Scratch cards", "New", "Popular", "Other"]
+	casinos = ["Mobile", "Downloads", "Crypto", "Sports", "Instant Play", "Big brand", "Braking Bad"]
+	providers = ["Net Ent", "Blueprint Gaming", "Microgaming", "Novomatic", "EGT", "Merkur Slots", "Rival", "iSoftBet", "Play Tech", "Play'n GO", "Realtime Gaming", "igt", "Pragmatic Play", "Big Time Gaming", "Thunderkick", "EvoPlay", "Nucleos Gaming"]
+	bonuses = [ "3rd Deposit Bonus", "2nd Deposit Bonus", "Welcome Bonus", "Reload Bonus", "Cashback Bonus", "Match Deposit Bonus", "No Deposit Bonus", "Free Spins" ]
+	deposit = ["Visa", "MasterCard", "Skrill", "Qiwi", "Neteller", "bitcoin", "Bank transfer", "EuTeller", "Giropay", "PaySafeCard"]
+	withdrawal = ["Visa", "MasterCard", "Paysafe Card", "Skrill", "Neteller", "Bank Wire Transfer", "Trustly", "EcoPayz", "iDebit", "instaDebit", "QIWI", "Yandex Money", "Neosurf", "Interac"]
+	licences = ["Malta", "Curaçao", "Gibraltar", "United Kingdom", "Sweden"]
+
+currenLang = "RU"
+theme = "night"
+
+logo = "images/logo.png"
+logoWhite = "images/logo-w.png"
+logo_height = "40"
+
+og_image = "images/og_image.jpg"
+seo_image = "images/og_image.jpg"
+
+home = "Home"
+site_name = "Slot_Brain"
+# Meta data
+description = "This is meta description"
+author = "XFR"
+
+# snipcart public api key
+snipcartAPI = "ZDgxY2ZiM2EtMWRmMi00M2ZkLWI1MDAtNzA2MDc0Y2Q1MzJlNjM3MTAzNDIwOTQ1NDA4NjM4"
+currency = "$"
+
+# Google Analitycs & GTM
+ga = "UA-174941783-1"
+gtm = "GTM-TTSBM9D"
+ym = "66278119"
+
+# Contact Information
+email = "support@slotman.com"
+
+# contact form action
+contactFormAction = "#" # contact form works with : https://formspree.io
+# copyright
+copyright = "Copyright © 2020 SlotmanBrain.com is owned and operated by Direx N.V., a company registered and established under the laws of Curacao and its wholly owned subsidiary, Direx Limited, registered address 12 Kolonakiou Street, West Block, 1st Floor, Office/flat 101, Agios Athanasios, Postal Code: 4103, Limassol, Cyprus. Direx N.V. is licensed and regulated by Antillephone N.V. Direx N.V.’s registration number is 131879 and its registered address is Heelsumstraat 51 E-Commerce Park, Curacao."
+
+# google map
+[params.gmap]
+enable = true
+gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCvWguaJFu6BKQaesn9UGSgtXILZYKNAA4&callback=initMap"
+mapLatitude = "51.5223477"
+mapLongitude = "-0.1622023"
+
+# Preloader
+[params.preloader]
+enable = true
+preloader = "/images/favicon.png" # use .png , .svg or .gif format
+
+# search
+[params.search]
+enable = true
+
+
+############################# Product Share ########################
+[[params.share]]
+title = "facebook"
+icon = "ti-facebook" # themify icon : https://themify.me/themify-icons
+link = "#"
+
+[[params.share]]
+title = "youtube"
+icon = "ti-youtube" # themify icon : https://themify.me/themify-icons
+link = "#"
+
+[[params.share]]
+title = "instagram"
+icon = "ti-instagram" # themify icon : https://themify.me/themify-icons
+link = "#"
+
+[[params.share]]
+title = "email"
+icon = "ti-email" # themify icon : https://themify.me/themify-icons
+link = "mailto:support@slotman.com"
+
+[[params.share]]
+title = "skype"
+icon = "ti-skype" # themify icon : https://themify.me/themify-icons
+link = "#"
+
+
+
+############################### Footer #############################
+[params.footer]
+
+# opening hours
+[[params.footer.openingHour]]
+day = "Monday-Friday"
+time = "8.00-20.00"
+
+[[params.footer.openingHour]]
+day = "Saturday"
+time = "10.00-20.00"
+
+[[params.footer.openingHour]]
+day = "Sunday"
+time = "12.00-20.00"
+
+
+
+
+
+# disable language
+defaultContentLanguage = "en"
+disableLanguages = ["ru"]
+
+################################ Ru Language ########################
+[Languages.ru]
+languageName = "Ru"
+languageCode = "ru-ru"
+contentDir = "content/ru"
+weight = 1
+home = "Главная"
+
+################################ En Language ########################
+[Languages.en]
+languageName = "En"
+languageCode = "en-us"
+contentDir = "content/en"
+weight = 2
+home = "Home"
+
+################################ Sitemap ########################
+[sitemap]
+ChangeFreq = "daily"
+Priority = 0.6
+Weight = [
+["main", "1"],
+["sub2", "0.8"],
+["sub3", "0.6"]
+]
+

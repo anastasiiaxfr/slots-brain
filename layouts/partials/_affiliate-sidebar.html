@@ -1,0 +1,466 @@
+<!-- BEGIN sidebar -->
+{{ $pagesCasinos := first 40 (where .Site.RegularPages "Type" "casino") }}
+{{ $pagesAffiliates := first 40 (where .Site.RegularPages "Type" "affiliate") }}
+
+
+<section class="widget widget-categories mb-5">
+  <div class="filters" id="filters-affiliates">
+
+    <!-- begin filter item -->
+    <nav class="filters-item">
+      <div class="filters-header" id="filters-target-provider">
+        <h2 class="my-2">
+          <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-provider" aria-expanded="true" aria-controls="filters-provider">
+
+            Affiliate by Software
+
+            <small class="ti-angle-down"></small>
+          </button>
+        </h2>
+      </div>
+
+      <div id="filters-provider" class="collapse show" aria-labelledby="filters-target-type" data-parent="#filters-affiliates">
+        <div class="filters-body">
+          {{ $softAff := slice }}
+          {{ range $pagesAffiliates }}
+          {{ if .Params.soft }}
+          {{ $softAff = uniq ( $softAff | append .Params.soft ) | sort }}
+
+          {{ end }}
+          {{ end }}
+
+          <ul class="list-unstyled">
+            {{ range $ind, $el := $softAff }}
+            {{ $software := . }}
+            <li>
+             <div class="filters-header" id="filters-target-soft-{{ $ind }}">
+              <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-soft-{{ $ind }}"  aria-controls="filters-soft-{{ $ind }}">
+                <span>
+                  {{ . | title }}   
+                  {{ $pgAffBySoft := slice }}
+                  {{ range $ind, $el := $pagesAffiliates }}
+                  {{ if (in .Params.soft $software) }}
+                  {{ $pgAffBySoft = uniq ($pgAffBySoft | append . ) | sort  }}
+                  {{ end }}
+                  {{ end }}
+
+                  [ {{ len $pgAffBySoft }} ]
+                </span>
+
+                <small class="ti-angle-down"></small>
+              </button>
+            </div>
+            <div id="filters-soft-{{ $ind }}" class="collapse" aria-labelledby="filters-target-soft-{{ $ind }}" data-parent="#filters-target-soft-{{ $ind }}">
+             <div class="filters-body">
+
+              <ul class="list-unstyled ml-3">
+
+                {{ range $pgAffBySoft }}
+                <li>
+                 <a class="filters-filter d-lg-flex justify-content-between"
+                 href="{{ .RelPermalink }}">
+                 {{ .Params.title }}
+               </a>
+             </li>
+             {{ end }}
+           </ul>
+
+         </div>
+       </div>
+
+     </li>  
+     {{ end }}
+   </ul>
+
+
+ </div>
+</div>
+</nav>
+<!-- end filter item -->
+
+<hr>
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-admin-fee">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-admin-fee" aria-expanded="false" aria-controls="filters-admin-fee">
+
+        Affiliate by Admin Fee
+
+        <small class="ti-angle-down"></small>
+      </button>
+    </h2>
+  </div>
+
+  <div id="filters-admin-fee" class="collapse" aria-labelledby="filters-target-admin-fee" data-parent="#filters-affiliates">
+    <div class="filters-body">
+
+      <ul class="list-unstyled">
+
+        {{ $adminFee := slice }}       
+        {{ range $pagesAffiliates }}
+
+        {{ if .Params.admin_fee }}
+        {{ $adminFee = uniq ($adminFee | append .Params.admin_fee) | sort }}
+        {{ end }}
+
+
+        {{ end }}
+
+        {{ range $ind, $el := $adminFee }}
+        {{ $val := . }}  
+        <li>
+          <div class="filters-header" id="filters-target-admin-fee-{{ $ind }}">
+
+            <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-admin-fee-{{ $ind }}"  aria-controls="filters-admin-fee-{{ $ind }}">
+
+              <span>
+                {{ . | title | humanize }}
+                {{ $pgAffByAdminFee := slice }}
+                {{ range $pagesAffiliates }}
+                {{ if (in .Params.admin_fee $val) }}
+                {{ $pgAffByAdminFee = uniq ( $pgAffByAdminFee | append . ) | sort }}
+                {{ end }}
+                {{ end }}
+                [ {{ len $pgAffByAdminFee }} ]
+
+              </span>
+              <small class="ti-angle-down"></small>
+            </button>
+
+          </div>
+          <div id="filters-admin-fee-{{ $ind }}" class="collapse" aria-labelledby="filters-target-admin-fee-{{ $ind }}" data-parent="#filters-target-admin-fee-{{ $ind }}">
+           <div class="filters-body">
+
+             <ul class="list-unstyled ml-3"> 
+              {{ range $pgAffByAdminFee }}
+              <li>
+                <a class="filters-filter d-lg-flex justify-content-between"
+                href="{{ .RelPermalink }}">
+
+                {{ .Params.title | title }}
+
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+
+      </li>  
+      {{ end }}
+    </ul>
+
+
+  </div>
+</div>   
+</nav>
+<!-- end filter item -->
+<hr>
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-subaffiliate">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-subaffiliate" aria-expanded="false" aria-controls="filters-subaffiliate">
+
+        Affiliate by Subaffiliates
+
+        <small class="ti-angle-down"></small>
+      </button>
+    </h2>
+  </div>
+
+  <div id="filters-subaffiliate" class="collapse" aria-labelledby="filters-target-subaffiliate" data-parent="#filters-affiliates">
+    <div class="filters-body">
+
+
+      <ul class="list-unstyled">
+
+       {{ $subAff := slice }}          
+       {{ range $pagesAffiliates }}
+       {{ if .Params.subaffiliates }}
+       {{ $subAff = uniq ($subAff | append .Params.subaffiliates) | sort }}
+       {{ end }}
+       {{ end }}
+
+       {{ range $ind, $el := $subAff }}
+       {{ $val := . }}
+
+       <li>
+        <div class="filters-header" id="filters-target-{{ $ind }}">
+
+          <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-{{ $ind }}"  aria-controls="filters-{{ $ind }}">
+            <span>
+              {{ . | title | humanize }}
+
+              {{ $pgSubAff := slice }}
+              {{ range $pagesAffiliates }}
+              {{ if (in .Params.subaffiliates $val) }}
+              {{ $pgSubAff = uniq ( $pgSubAff | append . ) | sort }}
+              {{ end }}
+              {{ end }}
+              [ {{ len $pgSubAff }} ]
+
+            </span>
+
+            <small class="ti-angle-down"></small>
+          </button>
+
+        </div>
+        <div id="filters-{{ $ind }}" class="collapse" aria-labelledby="filters-target-{{ $ind }}" data-parent="#filters-target-{{ $ind }}">
+         <div class="filters-body">
+
+           <ul class="list-unstyled ml-3"> 
+            {{ range $pgSubAff }}
+            <li>
+              <a class="filters-filter d-lg-flex justify-content-between"
+              href="{{ .RelPermalink }}">
+
+              {{ .Params.title | title }}
+
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
+    </li>  
+    {{ end }}
+  </ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+<hr>
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-revenue">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-revenue" aria-expanded="false" aria-controls="filters-revenue">
+
+        Affiliate by Revenue
+
+        <small class="ti-angle-down"></small>
+      </button>
+    </h2>
+  </div>
+
+  <div id="filters-revenue" class="collapse" aria-labelledby="filters-target-revenue" data-parent="#filters-affiliates">
+    <div class="filters-body">
+
+      {{ $revenue_percent := slice }}
+      {{ $pg := slice }}
+      {{ range $pagesAffiliates }}
+      {{ if .Params.revenue_share }}
+
+      {{ range .Params.revenue_share }}
+      {{ $revenue_percent = uniq ($revenue_percent | append .) | sort }}
+      {{ $pg = uniq ($pg | append .percent) | sort }}
+      {{ end }}
+
+      {{ end }}
+      {{ end }}
+
+
+
+      <ul class="list-unstyled">
+
+        {{ range $index, $elements := $pg }}
+        {{ $value := . }}
+
+        <li>
+          <div class="filters-header" id="filters-target-revenue-{{ $index }}">
+
+            <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-revenue-{{ $index }}"  aria-controls="filters-revenue-{{ $index }}">
+              <span>
+                {{ . }}
+              </span>
+            </button>
+          </div>
+          <div id="filters-revenue-{{ $index }}" class="collapse" aria-labelledby="filters-target-revenue-{{ $index }}" data-parent="#filters-target-revenue-{{ $index }}">
+           <div class="filters-body">
+             <ul class="list-unstyled ml-3 px-0"> 
+
+               {{ range $ind, $el := $revenue_percent }}
+               {{ $val := . }}
+               {{ $percent := .percent }}
+
+               {{ if eq $percent $value }}
+
+               
+
+               <li>
+                <div class="filters-header" id="filters-target-revenue-{{ $index }}-{{ $ind }}">
+
+                  <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-revenue-{{ $index }}-{{ $ind }}"  aria-controls="filters-revenue-{{ $index }}-{{ $ind }}">
+                    <span>
+                      
+                     <!--  {{ .percent | title | humanize }} -->
+                     {{ $pgAffRevenue := slice }}
+                     
+
+                     {{ range $pagesAffiliates }}
+                     {{ if ( in .Params.revenue_share $val) }}
+
+                     {{ $pgAffRevenue = uniq ( $pgAffRevenue | append . ) | sort }}
+                     
+                     {{ end }}
+                     {{ end }}
+
+                     
+
+                     {{ $revenue := slice }}
+
+
+                     {{ range $pgAffRevenue  }}
+
+                     {{ range .Params.revenue_share }}
+                     {{ if (in .percent $percent) }}
+
+
+                     {{ $revenue = $revenue | append .value }}
+                     {{ $revenue = $revenue | append .currency }}
+                     <!-- {{ .value }} {{ .currency }} <br> -->
+
+                     {{ end }}
+                     {{ end }}
+                     
+                     {{ $revenue = uniq $revenue | sort }}
+
+
+                     {{ end }}
+
+                     {{ $revenue = delimit $revenue  " " }}  
+                     {{ $revenue }}      
+                     [ {{ len $pgAffRevenue }} ]
+                   </span>
+
+                   <small class="ti-angle-down"></small>
+                 </button>
+
+               </div>
+               <div id="filters-revenue-{{ $index }}-{{ $ind }}" class="collapse" aria-labelledby="filters-target-revenue-{{ $index }}-{{ $ind }}" data-parent="#filters-target-revenue-{{ $index }}-{{ $ind }}">
+                 <div class="filters-body">
+                   <ul class="list-unstyled ml-3 px-0"> 
+
+                    <li>
+                      
+                     {{ range $pgAffRevenue  }}  
+                     <li>
+                       <a class="filters-filter d-lg-flex justify-content-between"
+                       href="{{ .RelPermalink }}">
+                       {{ .Params.title }} 
+                     </a>
+                   </li>
+                   {{ end }}
+                   
+                 </li>
+
+               </ul>
+             </div>
+           </li>
+
+
+           {{ end }}
+
+           {{ end }}
+
+
+         </ul>
+       </div>
+     </div>
+
+   </li>
+   {{ end }}
+   
+ </ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+<hr>
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-currency">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-currency" aria-expanded="false" aria-controls="filters-currency">
+
+        Affiliate by Currency
+
+        <small class="ti-angle-down"></small>
+      </button>
+    </h2>
+  </div>
+
+  <div id="filters-currency" class="collapse" aria-labelledby="filters-target-currency" data-parent="#filters-currency">
+    <div class="filters-body">
+
+
+      <ul class="list-unstyled">
+
+        {{ $currencyAff := slice }}
+        {{ range $pagesAffiliates }}
+        {{ if .Params.currecncy }}
+        {{ range .Params.currecncy }}
+        {{ $currencyAff =  uniq ($currencyAff | append . ) | sort }}
+        {{ end }}
+        {{ end }}
+        {{ end }}
+
+        {{ range $ind, $el := $currencyAff }}
+        {{ $currency := . }}
+        <li>
+          <div class="filters-header" id="filters-target-{{ . }}">
+            <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-{{ . }}"  aria-controls="filters-{{ .  }}">
+              <span>
+                {{ . | title }}   
+
+                {{ $pgAffCurrency := slice }}
+
+                {{ range $pagesAffiliates }}
+                {{ if ( in .Params.currecncy $currency ) }}
+
+                {{ $pgAffCurrency = $pgAffCurrency | append . }}
+
+                {{ end }}
+                {{ end }}
+
+                [ {{ len $pgAffCurrency }} ]
+              </span>
+
+              <small class="ti-angle-down"></small>
+            </button>
+          </div>
+          <div id="filters-{{ . }}" class="collapse" aria-labelledby="filters-target-{{ . }}" data-parent="#filters-target-{{ . }}">
+           <div class="filters-body">
+
+            <ul class="list-unstyled ml-3">
+
+              {{ $pgAffCurrency = uniq $pgAffCurrency | sort }}            
+              {{ range $pgAffCurrency }}
+              <li>
+               <a class="filters-filter d-lg-flex justify-content-between"
+               href="{{ .RelPermalink }}">
+               {{ .Params.title }}
+             </a>
+           </li>
+           {{ end }}
+         </ul>
+
+       </div>
+     </div>
+
+   </li>  
+   {{ end }}
+ </ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+</div>
+

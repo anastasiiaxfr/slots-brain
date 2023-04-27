@@ -1,0 +1,19 @@
+{{ $pagesBonus := first 40 (where .Site.RegularPages "Type" "bonus") }}
+
+
+<section class="slider-wrap pb-0">
+	<div class="row align-items-center justify-content-between mb-3 px-2">
+		<h4 class="my-0"> 
+			{{ i18n "bonus-related" }}
+		</h4>
+		<div class="slider-nav my-2 my-md-0 row px-2">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</div>
+	<div class="slider-related-bonus row">
+		{{ range first 10 $pagesBonus }}
+		{{ partial "_bonus-card.html" . }}
+		{{ end }}
+	</div>
+</section>

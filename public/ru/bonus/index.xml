@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>All promotions on Slotman Brain</title>
+    <link>https://examplesite.com/ru/bonus/</link>
+    <description>Recent content in All promotions on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/ru/bonus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2nd Deposit</title>
+      <link>https://examplesite.com/ru/bonus/2nd-deposit/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonus/2nd-deposit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>3rd Deposit Bonus</title>
+      <link>https://examplesite.com/ru/bonus/3rd-deposit-bonus/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonus/3rd-deposit-bonus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cashback Bonus</title>
+      <link>https://examplesite.com/ru/bonus/cashback-bonus/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonus/cashback-bonus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Free Spins</title>
+      <link>https://examplesite.com/ru/bonus/free-spins/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonus/free-spins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Match Deposit Bonus</title>
+      <link>https://examplesite.com/ru/bonus/match-deposit-bonus/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonus/match-deposit-bonus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>No Deposit Bonus</title>
+      <link>https://examplesite.com/ru/bonus/no-deposit-bonus/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonus/no-deposit-bonus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reload Bonus</title>
+      <link>https://examplesite.com/ru/bonus/reload-bonus/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonus/reload-bonus/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

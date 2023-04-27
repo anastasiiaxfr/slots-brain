@@ -1,0 +1,417 @@
+- id: not-found
+  translation: Doh! Page not found.
+  
+- id: btn-to-back
+  translation: Go Back
+
+- id: btn-to-home
+  translation: Go Home 
+
+- id: btn-all
+  translation: See all
+
+- id: btn-to-prev
+  translation: Prev
+
+- id: btn-to-next
+  translation: Next
+
+- id: btn-read-more
+  translation: Read more
+
+- id: btn-visit-casino
+  translation: Visit Casino
+  
+- id: btn-read-review
+  translation: Read Review 
+
+- id: btn-get-bonus
+  translation:  Get bonus
+
+- id: btn-aff
+  translation: Join affiliate program
+
+- id: categories
+  translation: Categories 
+
+- id: tags
+  translation: Tags
+
+- id: login
+  translation: Login 
+
+- id: register
+  translation: Register  
+
+- id: search
+  translation: Search 
+
+- id: subscribe
+  translation: Subscribe
+
+- id: follow-us
+  translation: Follow us 
+
+- id: shared
+  translation: Shared
+
+- id: show-more
+  translation: Show more
+
+- id: show-less
+  translation: Show less 
+
+- id: last
+  translation: Last
+
+- id: first
+  translation: 1st
+
+- id: soft
+  translation: Software 
+ 
+- id: tc
+  translation: Terms & Conditions
+
+- id: details
+  translation: Details
+
+- id: by-casino
+  translation: By Casino
+
+- id: admin-fee
+  translation: Admin Fee
+
+- id: sub-aff
+  translation: SubAffiliates
+
+- id: payment-date
+  translation: Payment Date
+
+- id: recomended-bonuses
+  translation: Recommended bonuses
+
+- id: restricted-countries
+  translation: Restricted Countries
+
+- id: max
+  translation: Maximum Withdrawal
+
+- id: mindep
+  translation: Minimum Deposit
+
+- id: promocode
+  translation: Promocode
+
+- id: "up-to"
+  translation: "Bonus up to"
+
+- id: fs
+  translation: "Free Spins"
+
+- id: wagering-requirements
+  translation: Wagering requirements
+
+- id: "btn-get-bonus"
+  translation: "Get bonus"
+
+- id: casino
+  translation: "Casino"   
+
+- id: from
+  translation: From
+
+- id: new-bonuses
+  translation: Top New bonuses
+
+- id: bonuses
+  translation: Bonuses
+
+- id: bonus
+  translation: Bonus
+
+- id: bonus-related
+  translation: Related bonuses
+
+- id: casinos
+  translation: Casinos
+
+- id: provider
+  translation: Provider
+
+- id: providers
+  translation: Providers
+
+- id: categories
+  translation: Categories
+
+- id: nofound
+  translation: Nothing found  
+
+- id: geo-restricted
+  translation: Restricted GEO
+
+- id: autoplay   
+  translation: AutoPlay
+
+- id: multiplayer   
+  translation: Multiplayer
+
+- id: site 
+  translation: Site
+
+- id: support
+  translation: Support
+
+- id: type 
+  translation: Type
+
+- id: btn-visit-casino
+  translation: visit casino
+
+- id: affiliate
+  translation: Affiliate
+
+- id: aff-related
+  translation: Related affiliates 
+
+- id: benefits
+  translation: Benefits
+
+- id: negatives
+  translation: Negatives
+
+- id: per-day
+  translation: per Day
+
+- id: per-week
+  translation: per week
+
+- id: per-month
+  translation: per month
+
+- id: per-transaction
+  translation: per transaction
+
+- id: limit
+  translation: Widthdrawl Limit
+
+- id: times
+  translation: Widthdrawl Times
+
+- id: pm
+  translation: Paymenth Methods
+
+- id: languages
+  translation: Languages
+
+- id: currencies
+  translation: Currencies
+
+- id: tournaments
+  translation: Tournaments
+
+- id: terms
+  translation: T&C
+
+- id: games
+  translation: Games
+
+- id: established
+  translation: Established
+
+- id: owner
+  translation: Owner
+
+- id: licences
+  translation: Licences
+
+- id: soft
+  translation: Soft
+
+- id: review
+  translation: Review
+
+- id: big-brands
+  translation: Big brands
+
+- id: txt1
+  translation: For players from your country
+
+- id: txt2
+  translation: 8000+ Casino Games to play for free
+
+- id: txt3
+  translation: The best Online games worl wide
+
+- id: txt4
+  translation: Most Popular Online Casino Games
+
+- id: txt5
+  translation: Latest Online Games
+
+- id: txt6
+  translation: Other Games Category
+
+- id: txt7
+  translation: All games
+
+- id: txt8
+  translation: Recommended casinos
+
+- id: txt9
+  translation: For players from your country
+
+- id: txt10
+  translation: All casinos 
+
+
+
+- id: txt11
+  translation: Our Company
+
+- id: txt12
+  translation: VISIT OUR LEGAL PAGE
+
+- id: txt13
+  translation: Send us an Email
+
+- id: txt14
+  translation: Find your favourite casino, game or bonus
+
+- id: txt15
+  translation: in the biggest and most accurate online casino database in the world
+
+- id: txt16
+  translation: Subscribe for latest news
+
+- id: txt17
+  translation: All Games Providers
+
+- id: txt18
+  translation: Total Games
+
+- id: txt19
+  translation: Latest news
+
+- id: txt20
+  translation: New blog posts
+   
+- id: txt21
+  translation: Other games 
+
+- id: txt22
+  translation: Most Popular Games in
+
+- id: txt23
+  translation: Recently added games
+
+- id: txt24
+  translation: All Bonuses from
+
+- id: txt25
+  translation:  Other casinos
+
+- id: txt26
+  translation: All other casinos
+
+- id: txt27
+  translation: Recently added bonuses
+
+- id: txt28
+  translation: Recomeded bonuses from
+
+- id: fltr1
+  translation: Providers by Bonuses
+
+- id: fltr2
+  translation: Providers by Games  
+
+- id: fltr3
+  translation: Bonuses by Type
+
+- id: fltr4
+  translation: Games by Types
+
+- id: fltr5
+  translation: Casinos by Types   
+
+- id: fltr6
+  translation: Games providers    
+
+- id: fltr7
+  translation: Casinos by Games
+
+- id: fltr8
+  translation: Casinos by Providers
+
+- id: fltr9
+  translation: Casinos by Bonuses
+
+- id: fltr10
+  translation: Casinos by Payment Method
+
+- id: fltr11
+  translation: Casinos by Licences
+
+- id: fltr12
+  translation: Casinos by Language
+
+- id: fltr13
+  translation: Casinos by Currencies
+
+- id: fltr14
+  translation: Casinos by Restricted Countries
+
+- id: fltr15
+  translation: Casinos by Withdrawal Limit
+
+- id: fltr16
+  translation: Bonuses by Date & Time
+
+- id: fltr17
+  translation:  Bonuses by Casino
+
+- id: fltr18
+  translation: Bonuses by Free Spins
+
+- id: fltr19
+  translation: Bonuses by Payment Methods
+
+- id: fltr20
+  translation: Bonuses by Bonus Currency
+
+- id: fltr21
+  translation: Bonuses by Resrticted GEO
+
+
+- id: aff-title
+  translation: Lorem ipsum dolor sit amet. 
+
+
+- id: last-day
+  translation: for Last day
+
+- id: last-week
+  translation: for Last week
+
+- id: last-month
+  translation: for Last month
+
+- id: las-year
+  translation: for Last year
+
+- id: aff-sub
+  translation: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim non, dignissimos voluptas nisi maxime iure saepe ullam eum cumque quae autem itaque necessitatibus quod temporibus." 
+
+- id: casinos-txt-1
+  translation: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+
+- id: casinos-txt-2
+  translation: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto minima reprehenderit, laborum reiciendis unde delectus nostrum consectetur fugit modi praesentium veritatis ipsum assumenda blanditiis dolorum, cupiditate culpa numquam ipsa quas hic excepturi atque aliquam enim. Sequi voluptas molestiae similique, earum dolorum sunt numquam eos distinctio corporis, alias itaque necessitatibus unde."
+
+- id: casinos-txt-3
+  translation: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+
+- id: casinos-txt-4
+  translation: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto minima reprehenderit, laborum reiciendis unde delectus nostrum consectetur fugit modi praesentium veritatis ipsum assumenda blanditiis dolorum, cupiditate culpa numquam ipsa quas hic excepturi atque aliquam enim. Sequi voluptas molestiae similique, earum dolorum sunt numquam eos distinctio corporis, alias itaque necessitatibus unde." 

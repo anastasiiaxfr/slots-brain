@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BonusCurrency on Slotman Brain</title>
+    <link>https://examplesite.com/bonuscurrency/</link>
+    <description>Recent content in BonusCurrency on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/bonuscurrency/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>EUR</title>
+      <link>https://examplesite.com/bonuscurrency/eur/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonuscurrency/eur/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

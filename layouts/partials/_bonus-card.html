@@ -1,0 +1,87 @@
+<!-- BEGIN bonus-card -->
+
+<div class="bonus">
+	<div class="bonus-info mb-4 mb-lg-0">
+		<figure class="bonus-img"></figure>
+
+		{{ if .Params.casinos }}
+		<div class="bonus-tags">
+			<a href="{{ `casinos/` | relURL }}{{ .Params.casinos | urlize }}/">
+				{{ .Params.casinos | truncate 50 }}
+			</a>
+		</div>
+		{{ end }}	
+
+		<a href="{{ .RelPermalink }}" class="bonus-target"></a>
+		<div  class="bonus-content text-center text-md-right">
+
+
+				<hgroup>
+
+					{{ if .Params.bonus }}
+					<h2 class="bonus-title-top mb-2 mt-0">
+						{{ .Params.bonus | truncate 80 }}
+					</h2>
+					{{ end }}
+
+
+					<h3 class="bonus-title my-0"> 
+
+						{{ if .Params.percent }}
+						<b>
+							{{ .Params.percent | truncate 10 }}
+						</b>
+						{{ i18n "up-to" }} 
+						{{ end }}												
+						{{ if .Params.bonus_val  }}
+						
+						{{ range $ind, $el:= .Params.bonus_val }}
+						
+						{{ if eq $ind 0 }}
+
+						<b class="bonus-value">
+							{{ .val }}
+							<small>
+								{{ .currency }}
+							</small>
+						</b>
+						
+						{{ end }}
+						{{ end }}
+
+						{{ end }}
+
+					</h3>
+
+					{{ if .Params.fs }}
+					<h4 class="bonus-title-btm mt-0">
+
+						<b>+{{ .Params.fs | truncate 10 }}</b> {{ i18n "fs" }}
+
+					</h4>
+					{{ end }}		
+				</hgroup>
+
+
+				<p class="bonus-promo-code">
+					{{ if .Params.promocode }}
+					Promo Code: <b>{{ .Params.promocode | truncate 10 }} </b>
+					{{ end }}
+				</p>
+
+			
+			<div class="bonus-cta">
+				<a href="{{.RelPermalink }}" class="bonus-review"> {{ i18n "review" }} </a>
+				<a href="{{ .Params.site }}?ref={{ .Site.BaseURL }}" class="bonus-visit"> {{ i18n "btn-get-bonus" }} </a>
+			</div>
+
+			{{ if eq .Params.bonusTC true }}
+			<a href="{{ .Site.BaseURL }}{{ `bonus/` | urlize }}{{ .Params.bonusCasino | urlize }}/{{ .Params.bonus | urlize }}/terms/" class="bonus-terms d-block mt-2"> 
+			{{ i18n "tc" }} </a>
+			{{ end }}
+
+		</div>
+	</div>
+</div>
+
+<!-- END bonus-card -->

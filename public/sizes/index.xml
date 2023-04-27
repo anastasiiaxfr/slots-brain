@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sizes on Slotman Brain</title>
+    <link>https://examplesite.com/sizes/</link>
+    <description>Recent content in Sizes on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/sizes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>M</title>
+      <link>https://examplesite.com/sizes/m/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/sizes/m/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S</title>
+      <link>https://examplesite.com/sizes/s/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/sizes/s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XL</title>
+      <link>https://examplesite.com/sizes/xl/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/sizes/xl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XXL</title>
+      <link>https://examplesite.com/sizes/xxl/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/sizes/xxl/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

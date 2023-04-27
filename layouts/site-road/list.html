@@ -1,0 +1,39 @@
+{{ define "main" }}
+<article class="page-sitemap">
+	{{ partial "page-title.html" . }}
+	<section class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 page-breadcrumb py-3">
+					{{ partial "breadcrumbs.html" . }}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<div class="row py-3 py-sm-5">
+				  <article class="col-lg-9">
+					<ul class="list-unstyled list-column">
+						{{ range .Site.RegularPages.ByDate }}
+						<li class="d-flex flex-wrap my-2">
+							<h1 class="h6 my-0 mr-2"><a href="{{ .Permalink }}">
+								{{ if .Title }}{{ .Title | lower }} {{ else }} {{ .Site.Title }} {{ end }}
+
+							</a></h1>
+							<small>[ <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time> ]</small>
+							
+						</li>
+						{{ end }}
+					</ul>
+				</article>
+				<aside class="col-lg-3">
+					{{ partial "_main-sidebar.html" . }}
+				</aside>
+			</div>
+		</div>
+	</section>
+
+</article>
+{{ end }}

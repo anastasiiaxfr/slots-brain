@@ -1,0 +1,110 @@
+<header class="header">
+  <nav class="navbar navbar-expand-lg w-100 navigation {{ if eq .Site.Params.theme "night" }} navbar-dark {{ end }}" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}"><img src="{{ if eq .Site.Params.theme "night" }}{{ .Site.Params.logoWhite | relURL }} {{ else }} {{ .Site.Params.logo | relURL }} {{ end }}"  height="{{ .Site.Params.logo_height }}"
+        alt="{{ .Site.Title }}"></a>
+
+        <button class="navbar-toggler py-0 px-2" type="button" data-toggle="collapse" data-target="#main-navbar"
+        aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="ti-menu"></span>
+        <small class="ti-close d-none"></small>
+      </button>
+
+      <div class="collapse navbar-collapse " id="main-navbar">
+        <ul class="navbar-nav mx-auto">
+          {{ range .Site.Menus.main }}
+          {{ if .HasChildren }}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="{{ .URL | relLangURL }}/" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {{ .Name }} <small class="ti-angle-down"></small>
+          </a>
+          <div class="dropdown-menu">
+            <nav>  
+              {{ range .Children }}
+              <a class="dropdown-item" href="{{ .URL | relLangURL }}/">{{ .Name }}</a>
+              {{ end }}
+            </nav>
+          </div>
+        </li>
+        {{ else }}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+    <!-- Navbar-collapse -->
+
+    <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
+      <li class="list-inline-item auth-form d-none">
+        <a href="#" class="auth-form-toggle"> {{ i18n "login" }}
+        </a> / <a href="#" class="auth-form-toggle"> {{ i18n "register" }}
+        </a>
+      </li>
+
+      <li class="list-inline-item lang-menu">
+     <!--  <a href="#" class="auth-form-toggle"> En <small class="ti-angle-down"></small>
+     </a> -->
+
+     <!-- Language List -->
+     {{ if .IsTranslated }}
+     <div class="lang-switcher-wrap dropdown" >
+      {{ $siteLanguages := .Site.Languages}}
+      {{ $pageLang := .Page.Lang}}
+      <button class="lang-switcher dropdown-toggle mx-0 mx-sm-3" type="button" id="lang-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        {{ $pageLang }}
+        <small class="ti-angle-down"></small>
+      </button>
+      <nav class="lang-switcher-nav dropdown-menu" aria-labelledby="lang-nav" id="select-language">
+        {{ range .Page.AllTranslations }}
+        {{ $translation := .}}
+        {{ range $siteLanguages }}
+        {{ if eq $translation.Lang .Lang }}
+        {{ $selected := false }}
+        {{ if eq $pageLang .Lang}}
+        <button class="dropdown-item" id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" onClick="location = this.value;">{{ .LanguageName }}</button>
+        {{ else }}
+        <button class="dropdown-item" id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" onClick="location = this.value;">{{ .LanguageName }}</button>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+        {{ end }}
+      </nav>
+    </div>
+    {{ end }}
+
+
+  </li>
+
+  <li class="list-inline-item">
+    <a href="#" class="search_toggle" id="search-icon"><i class="ti-search"></i></a>
+  </li>
+
+</ul>
+</div>
+</nav>
+
+<!--search overlay start-->
+<div class="search-wrap">
+  <div class="overlay">
+    <form action="{{`search` | relLangURL }}" class="search-form">
+      <div class="container">
+       <div class="search_toggle toggle-wrap">
+        <span class="search-close ti-close"></span>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-9">
+          <input type="search" id="search-query" name="s" class="form-control" placeholder="Search..." />
+          <button type="submit" hidden></button>
+        </div>
+        
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+<!--search overlay end-->
+</header>

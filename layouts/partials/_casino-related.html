@@ -1,0 +1,50 @@
+{{ $pagesCasinos := (where .Site.RegularPages "Type" "casino") }}
+{{ $pagesBonus :=  (where .Site.RegularPages "Type" "bonus") }}
+
+{{ $casino := .Title }}
+{{ $pgBonuses := slice }}
+{{ range $pagesBonus }}
+
+
+	{{ if eq .Params.casinos $casino }}	
+		{{ $pgBonuses = $pgBonuses | append . }}
+	{{ end }}
+{{ end }}
+
+{{ if gt (len $pgBonuses) 0 }}
+<section class="slider-wrap mb-0 mb-sm-4">
+	<div class="row mx-0 align-items-center justify-content-between mb-3">
+		<h4 class="h6 text-uppercase my-0"> 
+			{{ i18n "txt24" }} {{ .Title }}
+		</h4>
+		<div class="slider-nav my-md-0 row">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</div>
+	<div class="slider-related-bonus row">
+		{{ range first 10 $pagesBonus }}
+		{{ partial "_bonus-card.html" . }}
+		{{ end }}
+	</div>
+</section>
+{{ end }}
+
+<section class="slider-wrap pb-0">
+	<div class="row mx-0 align-items-center justify-content-between mb-0">
+		<h4 class="h6 text-uppercase my-0"> 
+			{{ i18n "txt25" }}
+		</h4>
+		<div class="slider-nav my-md-0 row">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</div>
+	<div class="slider-related-casinos row">
+		{{ range first 10 $pagesCasinos }}
+		<div class="px-3">
+		{{ partial "_casino-card.html" . }}
+		</div>
+		{{ end }}
+	</div>
+</section>

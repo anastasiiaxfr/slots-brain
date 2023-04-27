@@ -1,0 +1,13 @@
+{{ if .Site.Params.preloader.enable }}
+{{ "<!-- preloader start -->" | safeHTML }}
+<div class="preloader">
+  {{ if ne .Site.Params.preloader.preloader "" }}
+  <div class="preloader-inner">
+  <img src="{{ .Site.Params.preloader.preloader | relURL }} " alt="preloader">
+  <div class="preloader-ellipsis"><div></div><div></div><div></div><div></div></div>
+
+  </div>
+  {{ end }}
+</div>
+{{ "<!-- preloader end -->" | safeHTML }}
+{{ end }}

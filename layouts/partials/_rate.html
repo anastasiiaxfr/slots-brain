@@ -1,0 +1,29 @@
+<!-- BEGIN rate -->
+<figure class="rate my-0">
+	<div class="rate"></div>
+	<span class="rate-value"></span>
+</figure>
+<!-- END rate -->
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+<script>
+$(function () {
+
+  $(".rate").rateYo({
+    rating: 1.0,
+    precision: 2,
+    starWidth: "20px",
+    onSet: function (e, data) {
+    alert("The rating is set to " + data.rating() + "!");
+    $(this).rateYo("option", "readOnly", true);
+      $(this).next().html(data.rating());
+    },
+  });
+  
+});
+</script>

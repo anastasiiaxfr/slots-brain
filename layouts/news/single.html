@@ -1,0 +1,85 @@
+{{ define "main" }}
+
+
+
+{{ partial "page-title-news.html" . }}
+<article class="page-single">
+  <section class="bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 page-breadcrumb py-3">
+          {{ partial "breadcrumbs.html" . }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-single-wrap">
+    <div class="container">
+
+
+      <div class="row justify-content-center">
+
+        <article class="col-md-8">
+
+
+          <section class="page-single-content">
+            <div class="mt-0 mb-5">
+              {{ .Content }}
+            </div>
+          </section>
+          <hr>
+          {{ partial "_prev-next.html" . }}
+          <hr>
+          
+          <section>
+            <div class="row mx-0 align-items-center justify-content-center justify-content-md-between">
+             {{ if .Params.categories }}
+             <div class="d-flex align-items-center my-1">
+              <b class="heading-6 text-uppercase my-0">
+
+                {{ i18n "categories" }}:
+
+              </b>
+              <nav class="tag-wrap mx-2">
+                {{ range .Params.categories }}
+                <a href="{{ `/categories/` | relLangURL }}{{ . | urlize }}/" class="tag"> {{ . }} </a>
+                {{ end }}
+              </nav>
+            </div>
+            {{ end }}
+
+            {{ if .Params.tags }}
+            <div class="d-flex align-items-center my-1">
+              <b class="heading-6 text-uppercase my-0">
+
+                {{ i18n "tags" }}: 
+
+              </b>
+              <nav class="tag-wrap ml-2">
+                {{ range first 5 .Params.tags }}
+                <a href="{{ `/tags/` | relLangURL }}{{ . | urlize }}/" class="tag"> {{ . }} </a>
+                {{ end }}
+              </nav>
+
+            </div>
+            {{ end }}
+
+
+          </div>
+
+        </section>
+
+        <hr>
+        {{ partial "_news-related-inline.html" . }}
+        <hr>
+        {{ partial "_social-share.html" . }}
+        <hr>
+        {{ partial "_comments.html" . }}
+
+      </article>
+    </div>
+  </div>
+</section>
+</article>
+{{ end }}

@@ -1,0 +1,42 @@
+{{ define "main" }}
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<style>
+	.page-wrap {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		-webkit-flex-direction: column;
+		-moz-flex-direction: column;
+		-ms-flex-direction: column;
+		-o-flex-direction: column;
+		flex-direction: column;
+		justify-content: center;
+		-ms-align-items: center;
+	}
+
+</style>
+<article class="page-404 py-4">
+
+	<p class="page-404-subtitle mb-1">
+		{{ i18n "not-found" }}
+	</p>
+
+	<h1 class="page-404-title">
+		404
+	</h1>
+	
+	<div class="d-flex flex-wrap flex-sm-nowrap justify-content-center align-itemc-center mt-2">
+		<a href="../" class="btn-none mx-2 my-2"> <small class="ti-angle-left"></small>
+		{{ i18n "btn-to-home" }} 
+		 </a> 
+		<a href="{{ .Site.BaseURL }}"  class="btn-none mx-2 my-2">
+		 {{ i18n "btn-to-back" }}
+		<small class="ti-angle-right"></small></a>
+	</div>
+
+</article>
+
+{{ end }}

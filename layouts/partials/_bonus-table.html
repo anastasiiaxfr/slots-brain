@@ -1,0 +1,154 @@
+<!-- BEGIN table -->
+
+<section class="table-info-header bg-light">
+	
+	<p class="text-sm my-0 my-1 ">
+		{{ if .Params.bonus }} {{ .Params.bonus }} {{ end }} 
+	</p>
+
+	<div class="d-flex flex-wrap align-items-center justify-content-center text-center">
+		
+		{{ if .Params.promocode }}
+		<p class="w-100 my-1 text-uppercase text-xs">
+			{{ i18n "promocode" }}: {{ .Params.promocode }}
+		</p>
+		{{ end }}
+
+		<p class="text-lg my-0">
+			{{ if .Params.percent }} 
+			{{ .Params.percent }} 
+			{{ end }} 
+
+			{{ if .Params.bonus_val }}
+			{{ i18n "up-to" }}
+			{{ range $ind, $el := .Params.bonus_val }}
+			{{ if eq $ind 0 }}	
+			{{ .val }} {{ .currency }}
+			{{ end }}
+			{{ end }}
+			{{ end }}
+		</p>
+		<p class="text-lg my-0">
+			&nbsp;+&nbsp;
+			{{ if .Params.fs }}
+			{{ .Params.fs }}
+			{{ end }}
+			{{ i18n "fs" }}
+		</p>
+	</div>
+
+	
+
+	<a href="{{ .Params.site }}?ref={{ .Site.Params.site_name }}" class="d-none d-lg-block btn btn-sm  btn-main"> 
+		{{ i18n "btn-get-bonus" }}
+	</a>
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6"> 
+			{{ i18n "casino" }}: 
+		</b>
+		<span class="col-6"> 
+			{{ if .Params.casinos }}
+			{{ .Params.casinos }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "type" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.bonus }}
+			{{ .Params.bonus }} 
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "wagering-requirements" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.bonus_WR }}
+			{{ .Params.bonus_WR }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "mindep" }}: 
+		</b>
+		<span class="col-6">
+			{{ if  .Params.bonus_min_dep  }}
+			{{ range .Params.bonus_min_dep }} 
+			{{ .val }} {{ .currency }}, 
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "pm" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.payments }}
+			{{ range .Params.payments }}
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "max" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.bonus_max_cashout }}
+			{{ range .Params.bonus_max_cashout }}
+			{{ .val }}{{ .currency }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "restricted-countries" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.geo_resrticted }}
+			{{ range .Params.geo_resrticted }}
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1"> </div>
+</section>
+<!-- END table -->

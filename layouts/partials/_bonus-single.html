@@ -1,0 +1,19 @@
+<section class="row justify-content-center">
+
+	<div class="col-12">
+
+		{{ partial "_bonus-table.html" . }}
+
+	</div>
+</section>
+
+{{ if .Content }}
+<article class="col-md-8 mx-auto py-4 py-sm-5">
+	<h1 class="h4 text-uppercase"> {{ i18n "tc" }} </h1>
+	{{ partial "_show-more.html" . }}
+
+</article>
+{{ end }}
+
+
+

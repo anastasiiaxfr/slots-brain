@@ -1,0 +1,27 @@
+.team-member {
+	p {
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+}
+
+.block-one {
+	border: none;
+	text-decoration: none;
+
+	figcaption {
+		font-weight: 600;
+		text-decoration: underline;
+		color: $blueBg;
+	}
+	big {
+		display: block;
+		margin-bottom: 20px;
+		font-size: 4rem;
+		font-weight: 100;
+		color: $main;
+	}
+}
+
+

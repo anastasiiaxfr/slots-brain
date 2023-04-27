@@ -1,0 +1,143 @@
+{{ define "main" }}
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ partial "page-title.html" . }}
+
+<article class="page-about">
+
+  <section class="section section-our-company">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h3>
+            {{ i18n "txt11" }}
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, dolorum doloremque deleniti, blanditiis vitae vero. Dolorem autem iste hic aperiam iure ratione deleniti tenetur, asperiores.
+          </p>
+          <a href="{{ `our-company/` | relLangURL | urlize }}" class="btn btn-main btn-sm" role="button"> {{ i18n "btn-read-more" }} </a>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  {{ if $data.about.about.enable }}
+  {{ with $data.about.about }}
+  <section class="section section-about pt-0 pb-md-5 ">
+    <div class="container">
+      <div class="row justify-content-center">
+        {{ range .aboutItem }}
+        <div class="section-about-info col-lg-4  col-md-6 col-sm-6">
+          <div class="text-center">
+            <img class="img-fluid" src="{{ .image | relURL }}" alt="about-img">
+            <h4 class="mt-4">{{ .title | markdownify }}</h4>
+            <p class="mb-0">{{ .content | markdownify }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  {{ end }}
+  <!-- end About -->
+
+
+  <!-- Affiliats -->
+  {{ if $data.about.affiliates.enable }}
+  {{ with $data.about.affiliates }}
+  <section class="section section-affiliats bg-gray">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+          <h3 class="mt-0">
+           {{ .title }}
+         </h3>
+         <p>
+          {{ .subtitle }}
+        </p>
+
+        <a href="{{ .Site.BaseURL }}{{ `affiliates/`| relLangURL }}" class="btn btn-main btn-sm"> {{ .btn }} </a>
+
+        
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- end Affiliates -->
+
+
+<!-- Legacy -->
+{{ if $data.about.legacy.enable }}
+{{ with $data.about.legacy }}
+<section class="section section-legacy">
+  <div class="container">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-6 text-center">
+        <h3 class="mt-0">
+         {{ .title }}
+       </h3>
+       <p>
+        {{ .subtitle }}
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="row justify-content-center text-center">
+        {{ range .terms }} 
+        <div class="col-md-4 col-6 my-2">
+          <a href="{{ .Permalink }}" class="block-one">
+           <big class="{{ .icon }}"></big>
+           <figcaption>{{ .title }}</figcaption>
+         </a>
+       </div>
+       {{ end }}
+
+     </div>
+   </div>
+
+   <div class="col-md-12 mt-5 text-center">
+    <a href="{{ .Site.BaseURL }}{{ `legal/` | relLangURL }}" class="btn btn-main btn-sm" role="button"> {{ i18n "txt12" }} </a>
+  </div>
+</div>
+</div>
+</section>
+{{ end }}
+{{ end }}
+<!-- end Legacy -->
+
+
+<!-- Gmap -->
+{{ if .Site.Params.gmap.enable }}
+<div class="block">
+  <div class="google-map">
+    <div class="map" id="map"></div>
+  </div>
+</div>
+{{ end }}
+<!-- end Gmap -->
+
+
+<!-- Contact -->
+{{ with $data.contact.company }}
+<section class="section section-contact">
+  <div class="container">
+    <div class="row">
+
+      {{ partial "form-contacts.html" . }}
+
+    </div> <!-- end row -->
+  </div> 
+</section>
+{{ end }}
+<!-- end Contact -->
+
+
+</article>
+{{ end }}

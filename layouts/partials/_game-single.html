@@ -1,0 +1,19 @@
+<section class="row justify-content-center">
+
+	<div class="col-12">
+
+		{{ partial "_game-table.html" . }}
+
+	</div>
+</section>
+
+{{ if .Content }}
+<article class="col-md-8 mx-auto py-4 py-sm-5">
+	<h1> {{ i18n "details" }} </h1>
+	{{ partial "_show-more.html" . }}
+
+</article>
+{{ end }}
+
+
+

@@ -1,0 +1,140 @@
+<article class="page-providers">
+
+	{{ $pagesProviders := .Site.Params.providers }}
+	{{ $pagesBonuses := where .Site.RegularPages "Type" "bonus" }}
+	{{ $pagesGames := where .Site.RegularPages "Type" "game" }}
+	{{ $pagesCasinos := where .Site.RegularPages "Type" "casino" }}
+
+	{{ $configProviders := slice }}
+	{{ $bonusesProviders := slice }}
+	{{ $gamesProviders := slice }}
+	{{ $casinosProviders := slice }}
+	
+	
+	{{ range $pagesProviders }}
+	{{ $configProviders = uniq ($configProviders | append .) | sort }}
+	{{ end }}
+	<!-- {{ $configProviders }} -->
+
+
+	{{ range $pagesBonuses }}
+	{{ range .Params.bonusProvider }} 
+
+	{{ $bonusesProviders =  uniq ($bonusesProviders | append .)  | sort }} 
+
+	{{ end }}
+	{{ end }}
+
+	<!-- {{ $bonusesProviders }} -->
+	
+	{{ range $pagesGames }}
+	{{ if .Params.providers }} 
+
+	{{ $gamesProviders =  uniq ($gamesProviders | append .Params.providers )  | sort }} 
+
+	{{ end }}
+	{{ end }}
+
+	<!-- {{ $gamesProviders }} -->
+	
+	
+	{{ $allProviders := slice }}
+	{{ $allProviders = uniq ( $allProviders | append  ( $gamesProviders | append $bonusesProviders )) | sort }}
+
+
+	<!-- {{ $allProviders }} -->
+
+
+	{{ $providersByBonusesCount := slice }}
+	{{ $providersByGamesCount := slice }}
+
+
+
+
+	<section class="pb-0 mb-4">
+		
+		<hgroup class="row align-items-center justify-content-between mx-0 mb-3">
+			<h2 class="h4 my-0"> 
+				<small class="miw-25 ti-bookmark color-main"></small> {{ i18n "txt17" }}  
+			</h2>
+		</hgroup>
+
+
+		<div class="row justify-content-center justify-content-sm-start">
+			
+          
+
+			{{ if not (eq (len $allProviders ) 0) }}
+
+			{{ range $providers, $providerEL := $allProviders }}
+
+
+			{{ $provider := . }}
+
+
+
+			<div class="provider-card-wrap col-xl-3 col-md-4 col-sm-6 col-12">
+				<!-- BEGIN provider card -->
+				<a href="{{ `providers/`  | relLangURL }}{{ . | urlize }}/">
+					<figure class="provider-card">
+						<figcaption>
+							<div class="provider-card-feature">
+
+								<img src="{{ `/images/providers/`| relURL}}{{ . | urlize }}.png" alt="{{ . | title }}"> 
+
+
+								<!-- <span> {{ . }} </span> -->
+
+							</div>
+							<div class="provider-card-tags">
+
+								<small class="tag">
+									{{ i18n "bonuses" }}: 
+									<b> 
+										{{ $countBonuses := 0 }}
+										{{ range $pagesBonuses }}
+										{{ if (in .Params.bonusProvider $provider) }}
+
+										{{ $countBonuses = add  $countBonuses 1 }}							
+										{{ end }}
+										{{ end }}
+										{{ $countBonuses  }}
+									</b>
+								</small>
+								<small class="tag">
+									{{ i18n "casinos" }}: <b> XXX </b>
+								</small>
+
+							</div>
+							<div class="provider-card-content">
+
+								<!--<h2> {{ . }} </h2> -->
+								<small> {{ i18n "txt18" }}: </small><b>
+									{{ $countGames := 0 }}
+									{{ range $pagesGames }}
+									{{ if (in .Params.providers $provider) }}
+
+									{{ $countGames = add  $countGames 1 }}							
+									{{ end }}
+									{{ end }}
+									{{ $countGames  }}
+								</b>
+							</div>
+
+						</figcaption>
+					</figure>
+				</a>
+				<!-- END provider card -->
+			</div>
+
+			{{ end }}
+			{{ end }}
+
+
+
+
+		</div>
+	</section>
+
+</article>
+

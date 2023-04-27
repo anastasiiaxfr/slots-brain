@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BonusProvider on Slotman Brain</title>
+    <link>https://examplesite.com/ru/bonusprovider/</link>
+    <description>Recent content in BonusProvider on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/ru/bonusprovider/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>EvoPlay</title>
+      <link>https://examplesite.com/ru/bonusprovider/evoplay/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusprovider/evoplay/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iSoftBet</title>
+      <link>https://examplesite.com/ru/bonusprovider/isoftbet/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusprovider/isoftbet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Net End</title>
+      <link>https://examplesite.com/ru/bonusprovider/net-end/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusprovider/net-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nucleos Gaming</title>
+      <link>https://examplesite.com/ru/bonusprovider/nucleos-gaming/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusprovider/nucleos-gaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PlayTech</title>
+      <link>https://examplesite.com/ru/bonusprovider/playtech/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonusprovider/playtech/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

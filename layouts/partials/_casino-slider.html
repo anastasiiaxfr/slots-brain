@@ -1,0 +1,69 @@
+<!-- BEGIN casinos -->
+
+
+
+{{ $pagesBonuses := where .Site.RegularPages "Type" "bonus" }}
+{{ $pagesGames := where .Site.RegularPages "Type" "game" }}
+{{ $pagesCasinos := where .Site.RegularPages "Type" "casino" }}
+
+{{ $paginator := .Paginate $pagesCasinos }}
+
+
+
+<section class="slider-wrap mb-4">
+	<hgroup class="row mx-0 align-items-center justify-content-between text-center text-sm-left mb-2">
+		<h4 class="my-0"> <small class="miw-25 ti-bookmark color-main"></small> 
+
+			{{ i18n "from" }} <span class="country">Ukrain</span>
+
+		</h4>
+		<div class="slider-nav d-none d-sm-inline-flex">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</hgroup>
+
+
+	<div class="slider-casinos-big row px-1">
+
+
+		{{ range  $pagesCasinos }}
+
+		{{ $country := "UA" }}
+		{{ if in .Params.geo $country }}
+		<div class="px-3">
+			{{ partial "_casino-card.html" . }}
+		</div>
+		{{ end }}
+
+		{{ end }}
+	</div>
+</section>
+
+
+
+
+<section class="slider-wrap mb-4">
+	<hgroup class="row mx-0 align-items-center justify-content-between text-center text-sm-left mb-2">
+		<h4 class="my-0"> <small class="miw-25 ti-bookmark color-main"></small> 
+
+			{{ i18n "big-brands" }}
+
+		</h4>
+		<div class="slider-nav d-none d-sm-inline-flex">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</hgroup>
+	<div class="slider-casinos-big row px-1">
+		{{ range  $pagesCasinos }}
+		{{ if in .Params.casinos "Big brand"}}
+		<div class="px-3">
+			{{ partial "_casino-card.html" . }}
+		</div>
+		{{ end }}
+		{{ end }}
+	</div>
+</section>
+<!-- END casinos -->
+

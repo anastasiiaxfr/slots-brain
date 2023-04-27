@@ -1,0 +1,525 @@
+
+<!-- BEGIN sidebar -->
+{{ $pagesBonuses := first 40 (where .Site.RegularPages "Type" "bonus") }}
+
+<section class="widget widget-categories mb-2">
+
+
+  <div class="filters" id="filters-bonuses">
+    <!-- begin filter item -->
+    <nav class="filters-item">
+      <div class="filters-header" id="filters-target-1">
+        <h2 class="my-2">
+          <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-1" aria-expanded="true" aria-controls="filters-1">
+            {{ i18n "fltr3" }}
+
+            <small class="ti-angle-down"></small>
+          </button>
+        </h2>
+      </div>
+
+      <div id="filters-1" class="collapse show" aria-labelledby="filters-target-1" data-parent="#filters-bonuses">
+        <div class="filters-body">
+
+
+          {{ $bonusCategories := slice }}
+          {{ $bonusCategory := slice }}
+
+          {{ range $pagesBonuses }}
+
+          {{ $bonusCategories = $bonusCategories | append .Params.bonus }} 
+
+          {{ end }}
+          {{ $bonusCategories = uniq $bonusCategories | sort }}
+
+
+          <ul class="list-unstyled">
+
+            {{ range $i, $cat := $bonusCategories }}
+            {{ $bonusCategory := . }}
+
+            <li>
+              <a class="filters-filter d-lg-flex justify-content-between"
+              href="{{ "bonus/" | relURL}}{{ . | title | urlize }}/">
+              {{ . | title | humanize }}
+              <span>
+                {{ $cnt2 := slice }}
+                {{ range  $d, $value := first 40  $pagesBonuses }}
+                {{ if (in .Params.bonus $bonusCategory) }}
+                {{ $cnt2 = $cnt2 | append $i }}
+                {{ end }}
+                {{ end }}
+                {{ (len $cnt2) }}
+              </span>
+            </a>
+          </li>  
+          {{ end }}
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+  <!-- end filter item -->
+  
+  <hr>
+  <!-- begin filter item -->
+  <nav class="filters-item d-none">
+    <div class="filters-header" id="filters-target-9">
+      <h2 class="my-2">
+        <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-9" aria-expanded="false" aria-controls="filters-9">
+          {{ i18n "fltr16" }}
+          <small class="ti-angle-down"></small>
+        </button>
+      </h2>
+    </div>
+
+
+
+    <div id="filters-9" class="collapse" aria-labelledby="filters-target-9" data-parent="#filters-bonuses">
+      <div class="filters-body">
+
+
+
+        <ul class="list-unstyled">
+          <li>
+            <a class="filters-filter d-lg-flex justify-content-between"
+            href="{{ "bonus/" | relURL}}/">
+
+            {{ i18n "last-day" }}
+            
+          </a>
+        </li>  
+
+        <li>
+          <a class="filters-filter d-lg-flex justify-content-between"
+          href="{{ "bonus/" | relURL}}/">
+
+          {{ i18n "last-week" }}
+          
+        </a>
+      </li> 
+      <li>
+        <a class="filters-filter d-lg-flex justify-content-between"
+        href="{{ "bonus/" | relURL}}/">
+
+        {{ i18n "last-month" }}
+      </a>
+    </li>   
+    <li>
+      <a class="filters-filter d-lg-flex justify-content-between"
+      href="{{ "bonus/" | relURL}}/">
+
+      {{ i18n "last-year" }}
+      
+    </a>
+  </li>   
+
+</ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+
+<!-- <hr> -->
+
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-2">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-2" aria-expanded="false" aria-controls="filters-2">
+        {{ i18n "fltr17" }}
+        <small class="ti-angle-down"></small>
+      </button>
+    </h2>
+  </div>
+
+  <div id="filters-2" class="collapse" aria-labelledby="filters-target-2" data-parent="#filters-bonuses">
+    <div class="filters-body">
+
+
+      {{ $bonusCategoriesCasino := slice }}
+      {{ $bonusCategory := slice }}
+
+      {{ range $pagesBonuses }}
+
+      {{ $bonusCategoriesCasino = $bonusCategoriesCasino | append .Params.casinos }} 
+
+      {{ end }}
+      {{ $bonusCategoriesCasino = uniq $bonusCategoriesCasino | sort }}
+
+
+      <ul class="list-unstyled">
+
+        {{ range $ind, $cat := $bonusCategoriesCasino }}
+        {{ $bonusCategory := . }}
+
+        <li>
+          <div class="filters-header" id="filters-target-casinos-{{ $ind }}">
+
+            <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-casinos-{{ $ind }}"  aria-controls="filters-casinos-{{ $ind }}">
+
+              <span>
+                {{ . | title | humanize }}
+                {{ $pgBonusesByCasinos := slice }}
+                {{ range  $e, $value := first 40  $pagesBonuses }}
+                {{ if (in .Params.casinos $bonusCategory) }}
+                {{ $pgBonusesByCasinos = $pgBonusesByCasinos | append . }}
+                {{ end }}
+                {{ end }}
+                [ {{ (len $pgBonusesByCasinos) }} ]
+              </span>
+              <small class="ti-angle-down"></small>
+            </button>
+          </div>
+          <div id="filters-casinos-{{ $ind }}" class="collapse" aria-labelledby="filters-target-casinos-{{ $ind }}" data-parent="#filters-target-casinos-{{ $ind }}">
+           <div class="filters-body">
+            <ul class="list-unstyled ml-3">
+             {{ range $pgBonusesByCasinos }}
+             <li>
+              <a class="filters-filter d-lg-flex justify-content-between"
+              href="{{ .RelPermalink }}">
+              {{ .Params.title | title }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+
+  </li>  
+
+
+  {{ end }}
+</ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+<hr>
+
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-3">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-3" aria-expanded="false" aria-controls="filters-3">
+        {{ i18n "fltr18" }}
+        <small class="ti-angle-down"></small>
+      </button>
+    </h2>
+  </div>
+
+
+
+  <div id="filters-3" class="collapse" aria-labelledby="filters-target-3" data-parent="#filters-bonuses">
+    <div class="filters-body">
+
+
+      {{ $bonusCategoriesFS := slice }}
+
+      {{ range $pagesBonuses }}
+      {{ if .Params.fs }}
+
+      {{ $bonusCategoriesFS = $bonusCategoriesFS | append .Params.fs }} 
+      {{ end }}
+      {{ end }}
+      {{ $bonusCategoriesFS = uniq $bonusCategoriesFS | sort }}
+
+
+      <ul class="list-unstyled">
+
+        {{ range $ind, $cat := $bonusCategoriesFS }}
+        {{ $val := . }}
+
+        <li>
+          <div class="filters-header" id="filters-target-fs-{{ $ind }}">
+
+            <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-fs-{{ $ind }}"  aria-controls="filters-fs-{{ $ind }}">
+
+              <span>
+                {{ . | title | humanize }}
+                {{ $pgBonusesByFS := slice }}
+                {{ range  $e, $value := first 40  $pagesBonuses }}
+                {{ if (in .Params.fs $val) }}
+                {{ $pgBonusesByFS = $pgBonusesByFS | append . }}
+                {{ end }}
+                {{ end }}
+                [ {{ (len $pgBonusesByFS) }} ]
+              </span>
+              <small class="ti-angle-down"></small>
+            </button>
+
+          </div>
+          <div id="filters-fs-{{ $ind }}" class="collapse" aria-labelledby="filters-target-fs-{{ $ind }}" data-parent="#filters-target-fs-{{ $ind }}">
+           <div class="filters-body">
+            <ul class="list-unstyled ml-3">
+             {{ range $pgBonusesByFS }}
+             <li>
+              <a class="filters-filter d-lg-flex justify-content-between"
+              href="{{ .RelPermalink }}">
+              {{ .Params.title | title }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </li>
+
+  {{ end }}
+</ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+
+<hr>
+
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-4">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-4" aria-expanded="false" aria-controls="filters-4">
+       {{ i18n "fltr19" }}
+       <small class="ti-angle-down"></small>
+     </button>
+   </h2>
+ </div>
+
+
+
+ <div id="filters-4" class="collapse" aria-labelledby="filters-target-4" data-parent="#filters-bonuses">
+  <div class="filters-body">
+
+
+    {{ $bonusCategoriesPM := slice }}
+    {{ $bonusCategory := slice }}
+
+    {{ range $pagesBonuses }}
+    {{ if .Params.payments }}
+
+    {{ $bonusCategoriesPM = $bonusCategoriesPM | append .Params.payments }} 
+    {{ end }}
+    {{ end }}
+    {{ $bonusCategoriesPM = uniq $bonusCategoriesPM | sort }}
+
+
+    <ul class="list-unstyled">
+
+      {{ range $ind, $cat := $bonusCategoriesPM }}
+      {{ $val := . }}
+
+      <li>
+       <div class="filters-header" id="filters-target-pm-{{ $ind }}">
+
+        <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-pm-{{ $ind }}"  aria-controls="filters-pm-{{ $ind }}">
+
+          <span>
+            {{ . | title | humanize }}
+            {{ $pgBonusesByPM := slice }}
+            {{ range  $e, $value := first 40  $pagesBonuses }}
+            {{ if (in .Params.payments $val) }}
+            {{ $pgBonusesByPM = $pgBonusesByPM | append . }}
+            {{ end }}
+            {{ end }}
+            [ {{ (len $pgBonusesByPM) }} ]
+          </span>
+          <small class="ti-angle-down"></small>
+        </button>
+
+      </div>
+      <div id="filters-pm-{{ $ind }}" class="collapse" aria-labelledby="filters-target-pm-{{ $ind }}" data-parent="#filters-target-pm-{{ $ind }}">
+       <div class="filters-body">
+        <ul class="list-unstyled ml-3">
+          {{ range $pgBonusesByPM }}
+          <li>
+            <a class="filters-filter d-lg-flex justify-content-between"
+            href="{{ .RelPermalink }}">
+            {{ .Params.title | title }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</li>  
+
+
+{{ end }}
+</ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+
+<hr>
+
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-5">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-5" aria-expanded="false" aria-controls="filters-5">
+        {{ i18n "fltr20" }}
+        <small class="ti-angle-down"></small>
+      </button>
+    </h2>
+  </div>
+
+
+
+  <div id="filters-5" class="collapse" aria-labelledby="filters-target-5" data-parent="#filters-bonuses">
+    <div class="filters-body">
+
+
+      {{ $bonusCategoriesCurrency := slice }}
+
+      {{ range $pagesBonuses }}
+      {{ if .Params.currencies }}
+
+      {{ $bonusCategoriesCurrency = $bonusCategoriesCurrency | append .Params.currencies }} 
+      {{ end }}
+      {{ end }}
+      {{ $bonusCategoriesCurrency = uniq $bonusCategoriesCurrency | sort }}
+
+
+      <ul class="list-unstyled">
+
+        {{ range $ind, $cat := $bonusCategoriesCurrency }}
+        {{ $val := . }}
+
+        <li>
+         <div class="filters-header" id="filters-target-currency-{{ $ind }}">
+
+          <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-currency-{{ $ind }}"  aria-controls="filters-currency-{{ $ind }}">
+            <span>
+              {{ . | title }}
+              {{ $pgBonusesByCurrency := slice }}
+              {{ range  $e, $value := first 40  $pagesBonuses }}
+              {{ if (in .Params.currencies $val) }}
+              {{ $pgBonusesByCurrency = $pgBonusesByCurrency | append . }}
+              {{ end }}
+              {{ end }}
+              [ {{ (len $pgBonusesByCurrency) }} ]
+            </span>
+            <small class="ti-angle-down"></small>
+          </button>
+
+        </div>
+        <div id="filters-currency-{{ $ind }}" class="collapse" aria-labelledby="filters-target-currency-{{ $ind }}" data-parent="#filters-target-currency-{{ $ind }}">
+         <div class="filters-body">
+          <ul class="list-unstyled ml-3">
+            {{ range $pgBonusesByCurrency }}
+            <li>
+              <a class="filters-filter d-lg-flex justify-content-between"
+              href="{{ .RelPermalink }}">
+              {{ .Params.title | title }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </li>
+  {{ end }}
+</ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+
+<hr>
+
+
+<!-- begin filter item -->
+<nav class="filters-item">
+  <div class="filters-header" id="filters-target-7">
+    <h2 class="my-2">
+      <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-7" aria-expanded="false" aria-controls="filters-7">
+        {{ i18n "fltr21" }} 
+        <small class="ti-angle-down"></small>
+      </button>
+    </h2>
+  </div>
+
+
+
+  <div id="filters-7" class="collapse" aria-labelledby="filters-target-7" data-parent="#filters-bonuses">
+    <div class="filters-body">
+
+
+      {{ $bonusCategoriesRestrictedGEO := slice }}
+
+      {{ range $pagesBonuses }}
+      {{ if .Params.geo_resrticted }}
+
+      {{ $bonusCategoriesRestrictedGEO = $bonusCategoriesRestrictedGEO | append .Params.geo_resrticted }} 
+      {{ end }}
+      {{ end }}
+      {{ $bonusCategoriesRestrictedGEO = uniq $bonusCategoriesRestrictedGEO | sort }}
+
+
+      <ul class="list-unstyled">
+
+        {{ range $ind, $cat := $bonusCategoriesRestrictedGEO }}
+        {{ $val := . }}
+
+        <li>
+          <div class="filters-header" id="filters-target-geo-rest-{{ $ind }}">
+
+            <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-geo-rest-{{ $ind }}"  aria-controls="filters-geo-rest-{{ $ind }}">
+
+              <span>
+                {{ . | title }}
+                {{ $pgBomusesByGeoRestricted := slice }}
+                {{ range  $e, $value := first 40  $pagesBonuses }}
+                {{ if (in .Params.geo_resrticted $val) }}
+                {{ $pgBomusesByGeoRestricted = $pgBomusesByGeoRestricted | append . }}
+                {{ end }}
+                {{ end }}
+               [ {{ (len $pgBomusesByGeoRestricted) }} ]
+              </span>
+              <small class="ti-angle-down"></small>
+            </button>
+
+          </div>
+          <div id="filters-geo-rest-{{ $ind }}" class="collapse" aria-labelledby="filters-target-geo-rest-{{ $ind }}" data-parent="#filters-target-geo-rest-{{ $ind }}">
+           <div class="filters-body">
+            <ul class="list-unstyled ml-3">
+              {{ range $pgBomusesByGeoRestricted }}
+              <li>
+                <a class="filters-filter d-lg-flex justify-content-between"
+                href="{{ .RelPermalink }}">
+                {{ .Params.title | title }}
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </li>  
+
+
+    {{ end }}
+  </ul>
+
+
+</div>
+</div>
+</nav>
+<!-- end filter item -->
+
+
+
+</div>
+

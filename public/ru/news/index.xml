@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>All News on Slotman Brain</title>
+    <link>https://examplesite.com/ru/news/</link>
+    <description>Recent content in All News on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/ru/news/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>News post 2</title>
+      <link>https://examplesite.com/ru/news/post2/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/news/post2/</guid>
+      <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
+    </item>
+    
+    <item>
+      <title>News post 2</title>
+      <link>https://examplesite.com/ru/news/post5/</link>
+      <pubDate>Sun, 24 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/news/post5/</guid>
+      <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
+    </item>
+    
+    <item>
+      <title>News post 2</title>
+      <link>https://examplesite.com/ru/news/post3/</link>
+      <pubDate>Sat, 23 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/news/post3/</guid>
+      <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
+    </item>
+    
+    <item>
+      <title>News post 2</title>
+      <link>https://examplesite.com/ru/news/post4/</link>
+      <pubDate>Fri, 22 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/news/post4/</guid>
+      <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
+    </item>
+    
+    <item>
+      <title>News post 1</title>
+      <link>https://examplesite.com/ru/news/post1/</link>
+      <pubDate>Thu, 21 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/news/post1/</guid>
+      <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
+    </item>
+    
+    <item>
+      <title>News post 2</title>
+      <link>https://examplesite.com/ru/news/post6/</link>
+      <pubDate>Wed, 20 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/news/post6/</guid>
+      <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
+    </item>
+    
+  </channel>
+</rss>

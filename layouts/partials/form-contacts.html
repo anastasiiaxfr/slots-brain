@@ -1,0 +1,43 @@
+     <!-- Contact Form -->
+      <div class="contact-form col-lg-12 text-center">
+        <h3 class="mb-4"> {{ i18n "txt13" }} </h3>
+
+        <form id="contact-form" method="post" action="{{ .Site.Params.contactFormAction | safeURL }}">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <input type="text" placeholder="Your Name" class="form-control" name="name" id="name">
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <input type="email" placeholder="Your Email" class="form-control" name="email" id="email">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <input type="text" placeholder="Subject" class="form-control" name="subject" id="subject">
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <input type="text" placeholder="Phone" class="form-control" name="Phone" id="phone">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea rows="6" placeholder="Message" class="form-control" name="message" id="message"></textarea>
+          </div>
+
+          <div class="mt-4">
+            <input type="submit" id="contact-submit" class="btn btn-main btn-sm" value="Send Message">
+          </div>
+        </form>
+      </div>
+      <!-- ./End Contact Form -->

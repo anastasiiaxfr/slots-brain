@@ -1,0 +1,126 @@
+{{ define "main" }}
+
+{{ $pagesAffiliates := first 40 (where .Site.RegularPages "Type" "affiliate") }}
+{{ $pagesBonuses := first 40 (where .Site.RegularPages "Type" "bonus") }}
+
+
+<article class="page-single">
+
+  <section class="{{ if not (in .URL "games") }} bg-light {{ else }}  bg-dark-blue {{ end }}">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 page-breadcrumb py-3">
+          {{ partial "breadcrumbs.html" . }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="page-single-wrap py-0  {{ if (in .URL "games") }} bg-night {{ end }}">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 py-2 py-sm-5">
+
+          <article class="page-single-content  {{ if ((in .URL "casinos") | or (in .URL "games")| or (in .URL "affiliates")) }} bxsd {{ end }}">
+            {{ if (in .URL "affiliates") }}
+            <!-- <h2 class="h4 my-4 text-center"> {{ .Title }} </h2> -->
+            {{ partial "_affiliate-single.html" . }}
+            
+            {{ else }}
+
+            {{ if (in .URL "bonus") }}
+            {{ partial "_bonus-single.html" . }}
+
+            {{ else }}
+
+            {{ if (in .URL "casinos") }}
+            {{ partial "_casino-single.html" . }}
+            
+            {{ else }}
+
+            {{ if (in .URL "games") }}
+
+            
+
+
+            {{ partial "_game-single.html" . }}
+            
+            {{ else }}
+
+            <article class="col-md-8 mx-auto py-5">
+              {{ $body := replace .Content .Summary "" }}
+
+              {{ if .Summary }}
+              <section class="mx-auto mb-4">
+                <h1 class="h5 text-uppercase mb-3"> {{ .Title }} </h1>
+                {{ .Summary | plainify }}
+              </section>
+              {{ end  }}
+
+              {{ partial "_show-more.html" . }}
+            </article>
+
+            {{ end }}
+            {{ end }}
+            {{ end }}
+            {{ end }}
+          </article>
+
+          <section>
+
+            <hr>
+            {{ partial "_social-share.html" . }}
+            
+            <hr>
+            {{ partial "_prev-next.html" . }}
+
+          </section>
+
+
+
+          <hr>
+
+          <section class="mt-4">
+            
+            {{ if (in .URL "affiliates") }}
+            {{ partial "_affiliate-related.html" . }}
+            
+
+            {{ else }}
+
+            {{ if (in .URL "bonus") }}
+            {{ partial "_bonus-related.html" . }}
+            
+            
+            {{ else }}
+
+            {{ if (in .URL "casinos") }}
+            {{ partial "_casino-related.html" . }}
+
+
+            {{ else }}
+            
+            {{ if (in .URL "games") }}
+            {{ partial "_game-slider-cat.html" . }}
+            {{ else }}
+            {{ partial "_news-related-inline.html" . }}
+            {{ end }}
+            {{ end }}
+            {{ end }}
+            {{ end }}
+            
+          </section>
+
+
+
+          <!-- {{ partial "_comments.html" . }} -->
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</article>
+{{ end }}

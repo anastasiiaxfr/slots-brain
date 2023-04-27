@@ -1,0 +1,70 @@
+<article class="page-bonuses">
+
+	{{ $pagesBonuses := first 40 (where .Site.RegularPages "Type" "bonus") }}
+
+	
+	{{ partial "_bonus-slider.html" . }}
+	
+
+	{{ $bonusCategories := slice }}
+	{{ $bonusCategory := slice }}
+
+	{{ range $pagesBonuses }}
+
+	{{ $bonusCategories = $bonusCategories | append .Params.bonus }} 
+
+	{{ end }}
+
+	{{ $bonusCategories = uniq $bonusCategories | sort }}
+
+	{{ range $i, $cat := $bonusCategories }}
+	{{ $bonusCategory := . }}
+
+	{{ $bonusNumb := slice }}
+
+	{{ $cnt := slice }}
+	{{ range  $d, $value := first 40  $pagesBonuses }}
+	{{ if (in .Params.bonus $bonusCategory) }}
+	{{ $cnt = $cnt | append $i }}
+	{{ end }}
+	{{ end }}
+	{{ $bonusNumb = $bonusNumb | append (len $cnt) }}
+
+	{{ if gt (len $cnt) 1 }}
+
+	<section class="slider-wrap pb-0 mb-3">
+
+		<hgroup class="row align-items-center justify-content-center justify-content-sm-between text-center text-sm-left mb-3 px-2">
+			<h2 class="h4 my-0">
+				<small class="miw-25 ti-star color-main"></small> {{ . | title }} 
+				{{ $bonusNumb }} 
+			</h2>
+			<div class="slider-nav d-none d-sm-inline-flex row px-2">
+				<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+				<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+			</div>
+		</hgroup>
+		<div class="slider-bonuses-all-{{$cat}} row mb-2" id="all-{{ $cat }}">
+
+			{{ range  $value := first 40  $pagesBonuses }}
+			{{ if (in .Params.bonus $bonusCategory) }}
+			<div class="">
+				{{ partial "_bonus-card.html" . }}
+
+			</div>
+
+			{{ end }}
+			{{ end }}
+
+
+			<!--  {{ len $cnt }} -->
+		</div>
+	</section>
+
+	{{ end }}
+	{{ end }}
+
+
+
+</article>
+

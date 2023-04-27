@@ -1,0 +1,63 @@
+{{ $pagesAffiliates := first 40 (where .Site.RegularPages "Type" "affiliate") }}
+
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+
+<!-- BEGIN affiliates -->
+<article class="page-affiliates">
+
+  <!-- Legacy -->
+  {{ if $data.affiliates.affiliates.enable }}
+  {{ with $data.affiliates.affiliates }}
+  <section class="section section-legacy py-0">
+    <div class="container">
+      <div class="row justify-content-center mb-3">
+        <div class="col-md-8 text-center">
+          <h3 class="mt-0 mb-3">
+            {{ .title | markdownify }}
+          </h3>
+          <p>
+            {{ .subtitle }}
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="row justify-content-center text-center">
+            {{ range .features }}
+            <div class="col-lg-3 col-md-4 col-6">
+              <figure class="block-one">
+               <big class="{{ .icon }}">  </big>
+               <figcaption>
+                {{ .title }}
+              </figcaption>
+            </figure>
+          </div>
+          {{ end }}
+
+
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-5 mb-2 text-center">
+        <a href="{{ .Site.BaseURL }}legal/" class="btn btn-main btn-sm" role="button"> {{ .btn }} </a> 
+
+      </div>
+      {{ if .btnAllAffiliates.enable }}
+      {{ with .btnAllAffiliates }}
+      <a href="{{ `affiliates/review/` | relLangURL }}" class="btn-link btn-link-normal">
+        {{ .lable }}
+      </a>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- end Legacy -->
+
+
+</article>
+
+<!-- END affiliates -->

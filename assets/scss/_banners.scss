@@ -1,0 +1,28 @@
+.banner {
+	&-square {
+		display: block;
+		width: 100%;
+		cursor: pointer;
+		@include theme(dark);
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 0;
+			padding-top: 100%;
+		}
+	}
+}
+
+/* BEGIN banner */
+.banner {
+	&-sidebar {
+		display: block;
+		margin-bottom: 10px;
+		height: 250px;
+		overflow: hidden;
+		background-color: $blueBg;
+
+	}
+}
+/* END banner*/

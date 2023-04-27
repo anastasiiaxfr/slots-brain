@@ -1,0 +1,172 @@
+{{ define "main" }}
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ partial "hero.html" . }}
+
+
+<!-- BEGIN casinos -->
+<article class="section py-5 {{ if eq .Site.Params.theme "night" }} bg-night {{ end }} px-1 pb-5">
+  <div class="container px-2">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title text-center mb-4">
+          <h2 class="mt-0"> {{ i18n "txt8" }} </h2>
+          <p> {{ i18n "txt9" }} </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-between  mx-0  mb-2">
+
+      <h4 class="my-0"> 
+        <small class="miw-25 ti-settings color-main"></small> 
+        {{ i18n "txt10" }}
+
+      </h4>
+
+      <a href="{{ `/casinos/` | relLangURL | urlize }}" class="btn-link"> {{ i18n "btn-all" }} </a> 
+
+
+    </div>
+
+    <div class="row">
+
+      {{ range first 6  (where .Site.RegularPages "Type" "casino") }}
+      <div class="col-sm-6 col-md-6">
+      {{ partial "_casino-card" . }}
+      </div>
+
+      {{ end }}
+
+    </div>
+
+  </div>
+</article>
+</div>
+</article>
+<!-- END casinos -->
+
+<!-- BEGIN games -->
+<article class="section products-main py-0 px-2 {{ if eq .Site.Params.theme "night" }} bg-night {{ end }}">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title text-center mb-5">
+          <h2> {{ i18n "txt2" }} </h2>
+          <p> {{ i18n "txt3" }} </p>
+        </div>
+      </div>
+    </div>
+
+    <section>
+     {{ partial "_game-slider-home" . }}
+   </section>
+   <section>
+     {{ partial "_game-slider-cat" . }}
+   </section>
+ </div>
+</article>
+<!-- END games -->
+
+<!-- BEGIN bonuses -->
+<article class="section py-5 px-2 {{ if eq .Site.Params.theme "night" }} bg-night {{ end }}">
+  <div class="container">
+
+   <section class="slider-wrap pb-0">
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title text-center mb-4">
+          <h2> {{ i18n "recomended-bonuses" }} </h2>
+          <p> {{ i18n "txt1" }} </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row align-items-center justify-content-between mb-3 px-2">
+      <h4 class="my-0"> 
+        <small class="miw-25 ti-bookmark color-main"></small>
+        {{ i18n "new-bonuses" }}
+        
+        <a href="{{ `/bonus/` | relLangURL }}" class="btn-link d-none d-sm-inline-block" role="button">[ {{ i18n "btn-all" }} ]</a> 
+
+      </h4>
+      <div class="slider-nav my-2 my-md-0 row px-2">
+        <button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+        <button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+      </div>
+    </div>
+
+    <div class="slider-bonuses row">
+      {{ range (where .Site.RegularPages "Type" "bonus") }}
+      {{ partial "_bonus-card" . }}
+      {{ end }}
+    </div>
+  </section>
+
+</div>
+
+</article>
+<!-- END bonuses -->
+
+<!-- BEGIN tournaments -->
+{{ range first 1  (where .Site.RegularPages "Type" "tournament") }}
+<section class="section-timer py-5" style="background-image: url('/images/backgrounds/counter.png');">
+  <div class="container">
+    <div class="row align-items-center text-center text-lg-left">
+      <div class="col-lg-6 offset-lg-6">
+
+        <div>
+
+          <span class="h5 text-label">{{ .Params.subtitle }}</span>
+          <h2 class="pt-3 ">{{ .Params.title }}</h2>
+          <p class="text-md mt-3">{{ .Params.content }}</p>
+
+          <!-- Begin timer -->
+          <div id="simple-timer" class="syotimer mb-5" data-year="{{ .Params.timerYear }}" data-month="{{ .Params.timerMonth }}"
+          data-day="{{ .Params.timerDay }}" data-hour="{{ .Params.timerHour }}">
+        </div>
+        <!-- End timer -->
+
+        <a href="{{ .Permalink }}" class="btn btn-main">
+          {{ .Params.btnLabel }}
+          <small class="ti-angle-right"></small> 
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</section>
+{{ end }}
+<!-- END tournaments -->
+
+<!-- BEGIN STR -->
+{{ if .Site.Data.homepage.service.enable }}
+{{ with .Site.Data.homepage.service }}
+<section class="features border-top bg-main">
+  <div class="container">
+    <div class="row">
+      {{ range .serviceItem }}
+      <div class="col-lg-3 col-sm-6 col-md-6">
+        <div class="feature-block">
+          {{ if .icon }}
+          <i class="{{ .icon }}"></i>
+          {{ end }}
+          <div class="content">
+            <h5>{{ .title | markdownify }}</h5>
+            <p>{{ .content | markdownify }}</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- END STR -->
+
+{{ end }}

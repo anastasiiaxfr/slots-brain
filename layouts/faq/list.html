@@ -1,0 +1,82 @@
+{{ define "main" }}
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<article class="page-faq">
+  {{ partial "page-title.html" . }}
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 page-breadcrumb py-3">
+          {{ partial "breadcrumbs.html" . }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-wrapper py-0">
+    <div class="container">
+      {{ if $data.faq.faq.enable }}
+      {{ with $data.faq.faq }}
+
+      {{ $cat := slice }}
+
+      {{ range .faqItem }}
+      {{ if .category }}
+      {{ $cat = uniq ($cat | append .category) }}
+      {{ end }}
+      {{ end }}
+
+
+      <section class="page-wrapper">
+        <div class="container">
+
+          {{ range $i, $el := $cat }}
+          {{ $faqCat:= . }}
+
+
+          <dl class="faq my-4" id="faq">
+
+            <div class="faq-cat col-12 col-md-4">
+              {{ $faqCat }}
+            </div>
+            <div class="faq-item col-12 col-md-8 px-0">
+              {{ range $index, $el := $data.faq.faq.faqItem }}
+              {{ if (in .category $faqCat) }}
+
+              <dt class="faq-header" id="faq-{{ $i }}{{ $index  }}">
+
+                <button class="btn" type="button" data-toggle="collapse" data-target="#faq-item-{{ $i }}{{ $index  }}" aria-expanded="false" aria-controls="faq-item-{{ $i }}{{ $index  }}">
+
+                  <span><b>Q</b> {{ .question | truncate 100 | markdownify }}</span>
+                  <small class="ti-angle-right"></small>
+
+                </button>
+
+              </dt>
+
+              <dd id="faq-item-{{ $i }}{{ $index  }}" class="collapse" aria-labelledby="faq-{{ $i }}{{ $index  }}" data-parent="#faq">
+                <div class="faq-body">
+                 <b>A</b><p>{{ .answer | markdownify }}</p>
+               </div>
+             </dd>
+
+             {{ end }}
+             {{ end }}
+           </div>
+         </dl>
+
+
+
+         {{ end }}
+
+         {{ end }}
+         {{ end }}
+       </div>
+
+     </div>
+   </section>
+
+ </section>
+</article>
+{{ end }}

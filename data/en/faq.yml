@@ -1,0 +1,33 @@
+############################# Faqs ##########################
+faq:
+  enable : true
+  faqItem:
+    
+    # faq item loop
+    - category: "There is Category One"
+      question : "Order Status"
+      answer : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas iusto, alias, tempora fuga quam eveniet
+          neque excepturi aliquid. Eligendi, mollitia."
+      
+          
+    # faq item loop
+    - category: "There is Category One" 
+      question : "Shipping & Delivery"
+      answer : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus, incidunt similique nobis sint
+          quisquam nam ab error consequuntur sit ullam ex eum exercitationem, excepturi explicabo beatae eos aspernatur
+          odit ad perspiciatis, neque saepe magni enim. Maiores quia, quae sequi."
+    
+      # faq item loop
+    - category: "There is Category Two" 
+      question : "Shipping & Delivery"
+      answer : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus, incidunt similique nobis sint
+          quisquam nam ab error consequuntur sit ullam ex eum exercitationem, excepturi explicabo beatae eos aspernatur
+          odit ad perspiciatis, neque saepe magni enim. Maiores quia, quae sequi."
+      
+         # faq item loop
+    - category: "There is Category Three" 
+      question : "Shipping & Delivery"
+      answer : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus, incidunt similique nobis sint
+          quisquam nam ab error consequuntur sit ullam ex eum exercitationem, excepturi explicabo beatae eos aspernatur
+          odit ad perspiciatis, neque saepe magni enim. Maiores quia, quae sequi."
+      

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Playtech on Slotman Brain</title>
+    <link>https://examplesite.com/providers/playtech/</link>
+    <description>Recent content in Playtech on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/providers/playtech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HOLMES AND THE STOLEN STONES</title>
+      <link>https://examplesite.com/game/other/holmes/</link>
+      <pubDate>Wed, 20 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/game/other/holmes/</guid>
+      <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
+    </item>
+    
+  </channel>
+</rss>

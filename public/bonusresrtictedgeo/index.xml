@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BonusResrtictedGEO on Slotman Brain</title>
+    <link>https://examplesite.com/bonusresrtictedgeo/</link>
+    <description>Recent content in BonusResrtictedGEO on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/bonusresrtictedgeo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FR</title>
+      <link>https://examplesite.com/bonusresrtictedgeo/fr/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusresrtictedgeo/fr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PL</title>
+      <link>https://examplesite.com/bonusresrtictedgeo/pl/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusresrtictedgeo/pl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UA</title>
+      <link>https://examplesite.com/bonusresrtictedgeo/ua/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusresrtictedgeo/ua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UK</title>
+      <link>https://examplesite.com/bonusresrtictedgeo/uk/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusresrtictedgeo/uk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>USA</title>
+      <link>https://examplesite.com/bonusresrtictedgeo/usa/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusresrtictedgeo/usa/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,44 @@
+<!-- BEGIN game-card -->
+
+<div class="product mb-0">
+	<div class="product-wrap">
+
+		<a class="product-content" href="{{ .RelPermalink }}">
+			{{ if .Params.feature }}
+			<img class="img-fluid w-100 img-first" src="{{ .Params.feature | relURL }}" />
+			{{ end }}
+
+		</a>
+		<a class="product-hover-overlay" href="{{ .Permalink }}">
+			<span class="snipcart-add-item">
+				<i class="ti-control-forward"></i>
+			</span>
+		</a>
+
+		<nav class="tags"> 
+
+			{{ range first 1 .Params.games }}
+
+			<a class="tag" href='{{ "games/" | relLangURL }}{{ . | urlize }}/' rel="tag">
+				{{- . -}}
+			</a>
+
+			{{ end }}
+		</nav>
+
+		
+		{{ if .Params.providers }}
+		<a href="{{ `/providers/` | relURL }}{{ .Params.providers | urlize }}/" class="onsale"> {{ .Params.providers  }} </a>
+		{{ end }}
+
+	</div>
+
+
+	<div class="product-info">
+		<h2 class="product-title my-0"><a href="{{ .Permalink }}"><small>{{ .Title | markdownify }}
+
+		</small></a></h2>
+	</div>
+</div>
+
+<!-- END game-card -->

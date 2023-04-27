@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BonusWR on Slotman Brain</title>
+    <link>https://examplesite.com/ru/bonuswr/</link>
+    <description>Recent content in BonusWR on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/ru/bonuswr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>10x</title>
+      <link>https://examplesite.com/ru/bonuswr/10x/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuswr/10x/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>10x(d&#43;b)</title>
+      <link>https://examplesite.com/ru/bonuswr/10xd&#43;b/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuswr/10xd&#43;b/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>20x</title>
+      <link>https://examplesite.com/ru/bonuswr/20x/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuswr/20x/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>5x(d&#43;b)</title>
+      <link>https://examplesite.com/ru/bonuswr/5xd&#43;b/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuswr/5xd&#43;b/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

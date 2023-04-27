@@ -1,0 +1,20 @@
+{{ $pagesAffiliates := first 40 (where .Site.RegularPages "Type" "affiliate") }}
+
+
+<section class="slider-wrap pb-0">
+
+	<div class="row mx-0 align-items-center justify-content-between mb-3">
+		<h4 class="my-0"> 
+			{{ i18n "aff-related" }}
+		</h4>
+		<div class="slider-nav my-2 my-md-0 row">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</div>
+	<div class="slider-related row">
+		{{ range first 10 $pagesAffiliates }}
+		{{ partial "_affiliate-card.html" . }}
+		{{ end }}
+	</div>
+</section>

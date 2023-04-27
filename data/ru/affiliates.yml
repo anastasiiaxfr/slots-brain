@@ -1,0 +1,28 @@
+############################# Legacy ###################
+affiliates:
+  enable : true
+  title: "Fruitful Partnership. \n
+            Outstanding Accomplishments"
+  subtitle: "Become an SlotsBrain affiliate and benefit from an award-winning online casino review platform.
+            For years, we've been constantly accomplishing our partner's goals in terms of professional companionship
+            and effectiveness."
+  btn: "JOIN US NOW"
+  
+  btnAllAffiliates:
+    enable: true
+    lable: "Other Affiliates Review"
+
+  features:
+    #terms item loop
+    - title: "Lorem ipsum dolor sit amet, consectetur adipisicing."
+      icon: "ti-crown"
+    #terms item loop
+    - title: " Lorem ipsum dolor sit amet, consectetur."
+      icon: "ti-infinite"
+    #terms item loop
+    - title: "Lorem ipsum dolor sit amet, consectetur adipisicing.e"
+      icon: "ti-bar-chart"
+    #terms item loop
+    - title: "Lorem ipsum dolor, consectetur adipisicing."
+      icon: "ti-wallet"
+

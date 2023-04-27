@@ -1,0 +1,47 @@
+
+ <div class="col-md-4 col-sm-6 col-12 mb-4">
+  <!-- BEGIN affiliate-card -->
+
+  <figure class="affiliate">
+    <a class="affiliate-logo" href="{{ .RelPermalink }}">
+      {{ if .Params.logo }}
+
+      {{ range $image, $images := .Params.logo }}
+      {{ if eq $image 0 }}
+      <img src="{{ . | relURL }}" alt="{{ $.Params.title | title}}">
+      {{ end }}
+      {{ end }}
+
+      {{ end }}
+    </a>
+    <figcaption class="affiliate-content"> 
+      <h2 class="affiliate-subtitle">
+        <a href="{{ .RelPermalink }}">  
+          {{ i18n "soft" }}: 
+          {{ with .Params.soft }} 
+
+          {{ . | title | humanize }}
+
+          {{ else }}
+          {{ i18n "nofound" }}
+          {{ end }}
+        </a>
+      </h2>
+      <h3 class="affiliate-title">
+        <a href="{{ .RelPermalink }}">{{ .Title | title | truncate 20 }}</a>
+      </h3>
+      <a class="affiliate-site" href="{{ .Params.site }}?ref=">
+        {{ with .Params.site }} {{ . | truncate 50 }} {{ end }}
+      </a>
+
+      <a href="{{ .RelPermalink }}" class="btn btn-bd"> 
+        {{ i18n "review" }}: 
+      </a>
+
+    </figcaption>
+
+  </figure>
+
+  <!-- END affiliate-card -->
+
+ </div>

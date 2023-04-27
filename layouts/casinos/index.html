@@ -1,0 +1,128 @@
+{{ define "main" }}
+<article class="page-casinos">
+	{{ partial "page-title.html" . }}
+
+	{{ $pagesBonuses := where .Site.RegularPages "Type" "bonus" }}
+	{{ $pagesGames := where .Site.RegularPages "Type" "game" }}
+	{{ $pagesCasinos := where .Site.RegularPages "Type" "casino" }}
+
+	<section class="section section-casinos">
+		<div class="container" style="max-width: 1500px;">
+			<main class="row">
+				<article class="col-md-9">
+
+					
+
+
+					<section class="slider-wrap mb-4">
+						<hgroup class="row mx-0 px-2 align-items-center justify-content-between text-center text-sm-left mb-2">
+							<h4 class="my-0"> <small class="miw-25 ti-bookmark color-main"></small> 
+
+								From <span>Ukrain</span>
+
+							</h4>
+							<div class="slider-nav d-none d-sm-inline-flex">
+								<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+								<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+							</div>
+						</hgroup>
+						<div class="slider-casinos-big row mx-0 px-1">
+							{{ range  $pagesCasinos }}
+							{{ if in .Params.geo "UA"}}
+							{{ partial "_casino-card.html" . }}
+							{{ end }}
+							{{ end }}
+						</div>
+					</section>
+
+
+
+
+					<section class="slider-wrap mb-4">
+						<hgroup class="row mx-0 px-2 align-items-center justify-content-between text-center text-sm-left mb-2">
+							<h4 class="my-0"> <small class="miw-25 ti-bookmark color-main"></small> 
+
+								Big brands
+
+							</h4>
+							<div class="slider-nav d-none d-sm-inline-flex">
+								<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+								<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+							</div>
+						</hgroup>
+						<div class="slider-casinos-big row mx-0 px-1">
+							{{ range  $pagesCasinos }}
+							{{ if in .Params.casinos "Big brand"}}
+							{{ partial "_casino-card.html" . }}
+							{{ end }}
+							{{ end }}
+						</div>
+					</section>
+					
+
+					<section class="section pt-2 pb-4">
+						<div class="container">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="h3">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+									</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto minima reprehenderit, laborum reiciendis unde delectus nostrum consectetur fugit modi praesentium veritatis ipsum assumenda blanditiis dolorum, cupiditate culpa numquam ipsa quas hic excepturi atque aliquam enim. Sequi voluptas molestiae similique, earum dolorum sunt numquam eos distinctio corporis, alias itaque necessitatibus unde.
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="slider-wrap">
+						<div class="row align-items-center justify-content-between  mx-0 px-2  mb-2">
+							<h4 class="my-0"> 
+								<small class="miw-25 ti-settings color-main"></small> 
+								All other casinos 
+							</h4>
+						</div>
+
+						<div class="row mx-0 px-0">
+							{{ $paginator := .Paginate $pagesCasinos 10 }}
+							{{ range  $paginator.Pages }}
+							{{ partial "_casino-card.html" . }}
+							{{ end }}
+							<div class="col-12 mt-3">
+								{{ partial "pagination.html" . }}
+
+							</div>
+						</div>
+
+						
+					</section>
+
+
+						<section class="section pt-4 pb-0">
+						<div class="container">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="h3">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+									</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto minima reprehenderit, laborum reiciendis unde delectus nostrum consectetur fugit modi praesentium veritatis ipsum assumenda blanditiis dolorum, cupiditate culpa numquam ipsa quas hic excepturi atque aliquam enim. Sequi voluptas molestiae similique, earum dolorum sunt numquam eos distinctio corporis, alias itaque necessitatibus unde.
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+
+				</article>
+				<aside class="col-md-3">
+
+					{{ partial "_casino-sidebar.html" . }}
+
+				</aside>
+			</main>
+		</div>
+	</section>
+</article>
+{{ end }}
+

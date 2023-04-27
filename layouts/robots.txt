@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /sitemap/
+Disallow: /contacts/
+Disallow: /privacy/
+
+Disallow: /categories/
+Disallow: /tags/
+
+Sitemap: https://examole-site/sitemap.xml
+
+User-agent: GoogleBot
+Disallow: /sitemap/
+Disallow: /contacts/
+Disallow: /privacy/
+
+Disallow: /categories/
+Disallow: /tags/

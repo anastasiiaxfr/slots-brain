@@ -1,0 +1,166 @@
+<!-- BEGIN table -->
+
+<section class="table-info-header">
+	
+	<a href="{{ .Params.site }}?ref={{ .Site.Params.site_name }}" class="d-block mx-auto mx-sm-0 my-1">
+
+		{{ range $ind, $el := .Params.logo }}
+		{{ if eq $ind 1 }}
+		<img src="{{ . | relURL }}" alt="{{ $.Params.title }}" width="140" class="d-block">
+		{{ end }}
+		{{ if eq $ind 0 }}
+		<img src="{{ . | relURL }}" alt="{{ $.Params.title }}" width="140" class="d-none">
+		{{ end }}
+		{{ end }}
+
+	</a>
+
+	<div class="mx-4 mx-sm-5 my-1">
+		<div>
+			<b class="mr-2"> {{ i18n "site" }}: </b>
+			<span>
+				{{ if .Params.site }}
+				<a href=" {{ .Params.site }}?ref={{ .Site.Params.site_name }}"> {{ .Params.site }} </a>
+				{{ else }}
+				{{ i18n "nofound" }}
+				{{ end }}
+			</span>
+		</div>
+
+		<div>
+			<b class="mr-2"> {{ i18n "support" }}: </b>
+
+			<span>
+				{{ if .Params.support }}
+				<a href="mailto:{{ .Params.support }}"> {{ .Params.support }} </a>
+				{{ else }}
+				{{ i18n "nofound" }}
+				{{ end }}
+
+			</span>
+
+		</div>
+	</div>	
+
+	<a href="{{ .Params.site }}?ref={{ .Site.Params.site_name }}" class="d-none d-sm-block btn btn-sm  btn-main"> 
+		{{ i18n "btn-aff" }}
+	</a>
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6"> 
+			{{ i18n "soft" }}: 
+		</b>
+		<span class="col-6"> 
+			{{ if .Params.soft }}
+			{{ .Params.soft }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "by-casino" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.casinos }}
+			{{ .Params.casinos }} 
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "admin-fee" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.admin_fee }}
+			{{ .Params.admin_fee }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "sub-aff" }}:
+		</b>
+		<span class="col-6">
+			{{ if  .Params.subaffiliates  }}
+			{{ .Params.subaffiliates }} 
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "pm" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.payments }}
+			{{ range .Params.payments }}
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "currencies" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.currency }}
+			{{ range .Params.currency }}
+			{{ . }}
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{i18n "limit" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.withdrawals }}
+			{{ .Params.withdrawals }}
+
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "payment-date" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.payment_date }}
+			{{ .Params.payment_date }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+
+		</span>
+	</div>
+</section>
+<!-- END table -->

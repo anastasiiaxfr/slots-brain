@@ -1,0 +1,111 @@
+    <section class="slider-wrap">
+      <div class="row align-items-center justify-content-between text-center text-md-left mb-3 px-2">
+        <h4 class="my-0 "> <small class="miw-25 ti-star color-main"></small> {{ i18n "txt4" }} </h4>
+        <div class="slider-nav d-none d-sm-inline-flex row px-2">
+          <button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+          <button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+        </div>
+      </div>
+      <!-- slider games -->
+      <div class="slider-games row">
+        {{ range first 40 (where .Site.RegularPages "Type" "game") }}
+        {{ if (in .Params.games "popular") }}
+        <div class="col-lg-4 col-12 col-md-6 col-sm-6">
+          <div class="product mb-0">
+            <div class="product-wrap">
+
+              <a class="product-content" href="{{ .RelPermalink }}">
+                {{ if .Params.feature }}
+                <img class="img-fluid w-100" src="{{ .Params.feature | relURL }}" alt="{{ $.Params.title }}" />
+                {{ end }}
+              </a>
+
+              <a class="product-hover-overlay" href="{{ .Permalink }}">
+                <span class="snipcart-add-item">
+                  <i class="ti-control-forward"></i>
+                </span>
+              </a>
+
+              <nav class="tags">                
+                {{ range first 1 .Params.games }}
+
+                <a class="tag" href='{{ "games/" | relLangURL }}{{ . | urlize }}/' rel="tag">
+                  {{- . -}}
+                </a>
+
+                {{ end }}
+              </nav>
+
+              {{ if .Params.providers }}
+              <a href="{{ `/providers/` | relURL }}{{ .Params.providers | urlize }}/" class="onsale"> {{ .Params.providers }} </a>
+              {{ end }}
+            </div>
+
+
+            <div class="product-info">
+              <h2 class="product-title my-0"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
+      <!-- /slider-games -->
+    </section>
+
+
+    <section class="slider-wrap my-4">
+      <div class="row align-items-center justify-content-between mb-3 px-2">
+        <h4 class="my-0"> <small class="miw-25 ti-crown color-main"></small> {{ i18n "txt5" }} </h4>
+        <div class="slider-nav row px-2">
+          <button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+          <button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+        </div>
+      </div>
+      <!-- slider games -->
+      <div class="slider-games  row">
+
+       {{ range first 40  (where .Site.RegularPages "Type" "game") }}
+       {{ if (in .Params.games "new") }}
+       <div class="col-lg-3 col-12 col-md-6 col-sm-6">
+        <div class="product mb-0">
+          <div class="product-wrap">
+
+            <a class="product-content" href="{{ .RelPermalink }}">
+
+              {{ if .Params.feature }}
+              <img class="img-fluid w-100" src="{{ .Params.feature | relURL }}" alt="{{ $.Params.title }}" />
+              {{ end }}
+              
+
+            </a>
+            <a class="product-hover-overlay" href="{{ .Permalink }}">
+              <span class="snipcart-add-item">
+                <i class="ti-control-forward"></i>
+              </span>
+            </a>
+
+            <nav class="tags">                
+              {{ range first 1 .Params.games }}
+
+              <a class="tag" href='{{ "games/" | relLangURL }}{{ . | urlize }}/' rel="tag">
+                {{- . -}}
+              </a>
+
+              {{ end }}
+            </nav>
+
+            {{ if .Params.providers }}
+            <a href="{{ `/providers/` | relURL }}{{ .Params.providers | urlize }}/" class="onsale"> {{ .Params.providers }} </a>
+            {{ end }}
+
+          </div>
+          <div class="product-info">
+            <h2 class="product-title my-0"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+  </section>

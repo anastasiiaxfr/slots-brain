@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>All tournaments on Slotman Brain</title>
+    <link>https://examplesite.com/ru/tournaments/</link>
+    <description>Recent content in All tournaments on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    
+	<atom:link href="https://examplesite.com/ru/tournaments/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tournament #26</title>
+      <link>https://examplesite.com/ru/tournaments/tournament1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://examplesite.com/ru/tournaments/tournament1/</guid>
+      <description>PRIZES GAMES IN THIS TOURNAMENT </description>
+    </item>
+    
+  </channel>
+</rss>

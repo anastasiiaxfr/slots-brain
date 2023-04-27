@@ -1,0 +1,283 @@
+{{ define "main" }}
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+
+{{ $pagesGames := first 40 (where .Site.RegularPages "Type" "game") }}
+
+
+{{ partial "page-title.html" . }}
+
+<!-- BEGIN breadcrumbs -->
+<style>
+  .breadcrumb {
+    justify-content: center;
+  }
+</style>
+
+<section class="bg-light">
+  <div class="container" >
+    <div class="row justify-content-center">
+      <div class="col-lg-9 page-breadcrumb py-3">
+        {{ partial "breadcrumbs.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END breadcrumbs -->
+
+<div class="section">
+  <div class="container" {{ if (in .URL "/casinos" | or (in .URL "bonus")) }} style="max-width: 1500px;" {{ end }}>
+
+   {{ if eq .URL "/affiliates/" }}
+   {{ partial "_affiliate-list.html" . }}
+   
+   {{ else }}
+   <main class="row">
+    <article class="col-lg-9">
+
+      <section class="row px-1">
+
+        <div class="col-12 d-none">
+          <hgroup class="row mx-0 align-items-center justify-content-between mb-3">
+            <h4 class="my-0"> 
+
+              <small class="miw-25 ti-bookmark color-main"></small> 
+              {{ .Title }} 
+
+            </h4>
+          </hgroup>
+        </div>
+
+        {{ if in .URL "/games" }}
+        {{ $paginatorGames := .Paginate .Site.RegularPages 1 }}
+
+        {{ range $paginatorGames.Pages }}
+        {{ if in .URL "/games" }}
+        <div class="col-lg-4 col-12 col-md-6 col-sm-6 mb-2">
+         {{ partial "_game-card.html" . }}
+       </div>
+       {{ end }}
+       {{ end }}
+
+       {{ else }}
+
+       {{ if in .URL "/bonus" }}
+       {{ $paginatorBonus := .Paginate .Site.RegularPages 6 }}
+
+       {{ range $paginatorBonus.Pages }}
+       {{ if in .URL "/bonus" }}
+       <div class="col-lg-4 col-md-6 mb-4">
+        {{ partial "_bonus-card.html" . }}
+      </div>
+      {{ end }}
+      {{ end }}
+      
+      {{ else }}
+
+      {{ if in .URL "/casinos" }}
+      
+      {{ $paginatorCasinos := .Paginate .Site.RegularPages 2 }}
+
+      {{ range $paginatorCasinos.Pages }}
+      {{ if in .URL "/casinos" }}
+
+      <div class="col-sm-6 col-md-6">
+       {{ partial "_casino-card.html" . }}
+      </div>
+
+      {{ end }}
+      {{ end }}
+
+
+      {{ else }}
+
+      {{ if in .URL "/providers" }}
+
+      {{ range .Pages }} 
+      <!--  {{ .URL }} -->
+      {{ end }}
+
+      {{ else }}
+
+
+
+      {{ if eq .URL "/affiliates/review/" }}
+
+      {{ partial "_affiliate-parent.html" . }}
+      
+      {{ else }} 
+
+      {{ if .Content }}
+      <section class="mb-5"> 
+
+        <div> {{ .Content }} </div>
+
+        <div class="w-100 pt-3 pb-3">
+          <a href="{{ .Site.BaseURL }}" class="btn-link-md"> <small class="ti-angle-left"></small> <span class="ml-2">{{ i18n "btn-to-home" }}</span> </a>
+        </div>  
+        <div class="w-100 mb-0">
+          <hr>
+          {{ partial "_social-share.html" . }}
+          <hr>
+        </div>
+        {{ partial "_news-related-inline.html" . }}
+
+      </section> 
+      {{ else }} 
+
+
+
+
+      {{ $cat := slice }}
+      {{ range $name, $items := .Site.Taxonomies }}
+      {{ $cat = uniq ($cat | append $name ) | sort }}
+      {{ end }}
+
+
+      {{ $taxonomyPG := slice }}
+      {{ range $cat }}
+      {{ $taxonomy := . }}
+      {{ end }}
+
+      <div class="row">
+        {{ $paginator := .Paginate .Site.RegularPages }}
+        {{ range $paginator.Pages }}
+
+        <section class="col-md-6">
+         {{ partial "_news-card.html" . }}
+       </section>
+       {{ end }}     
+     </div>
+
+
+
+
+     {{ end }}
+
+
+
+     {{ end }}
+     {{ end }}
+     {{ end }}
+     {{ end }}
+     {{ end }}
+
+
+
+      <!--     
+         {{ $paginator := .Paginate .Site.RegularPages 6 }}
+
+      {{ range $paginator.Pages }}
+
+
+          {{ if in .URL "/games" }}
+
+          <div class="col-lg-4 col-12 col-md-6 col-sm-6 mb-2">
+           {{ partial "_game-card.html" . }}
+         </div>
+
+         {{ else }}
+
+
+         {{ if in .URL "/bonus" }}
+
+         <div class="col-md-6 mb-4">
+          {{ partial "_bonus-card.html" . }}
+        </div>
+
+        {{ else }}
+
+
+
+        {{ if in .URL "/casinos" }}
+        <div class="col-md-6 mb-4">
+          casinos
+        </div>
+        
+
+        {{ else }}
+
+
+
+        {{ end }}
+
+
+        {{ end }}
+
+        {{ end }}
+
+        {{ end }} -->
+        <div class="col-12 pt-3">
+          {{ partial "pagination.html" . }}
+        </div>
+
+      </section>
+
+      <section class="row mt-4">
+
+        {{ if in .URL "/games" }}
+        {{ partial "_game-related-top.html" . }}
+        
+        {{ else }}
+        {{ if in .URL "/casinos" }}
+        <div class="col-12 px-4">
+         {{ partial "_casino-slider.html" . }} 
+       </div>
+       {{ else }}
+       {{ if in .URL "/bonus" }}
+       <div class="col-12 px-4">
+         {{ partial "_bonus-slider.html" . }} 
+       </div>
+       {{ else }}
+       {{ end }}
+       {{ end }}
+       {{ end }}
+
+     </section>
+
+   </article>
+   <aside class="col-lg-3">
+    <div>
+      {{ if in .URL "/games" }}
+
+      {{ partial "_game-sidebar.html" . }}
+
+
+      {{ else }}
+
+      {{ if in .URL "/bonus" }}
+      {{ partial "_bonus-sidebar.html" . }}
+
+      {{ else }}
+
+      {{ if in .URL "/affiliates/review/" }}
+      {{ partial "_affiliate-sidebar.html" . }}
+
+
+      {{ else }} 
+      {{ if in .URL "/casinos" }}
+      {{ partial "_casino-sidebar.html" . }}
+
+
+      {{ else }} 
+
+      {{ partial "_main-sidebar.html" . }}
+
+
+      {{ end }}
+      {{ end }}
+      {{ end }}
+      {{ end }}
+    </div>
+  </aside>
+</main>
+
+{{ end }}
+
+
+
+</div>
+</div>
+
+
+{{ end }}

@@ -1,0 +1,295 @@
+
+// Variables
+$light: #fff
+$white: #fff
+$black: #000
+$main: #ffad00
+// $primary-color: #ff4135
+$primary-color: #172037
+$secondary-color: #f2f3f5
+$extra-color: #f9f9f9
+$success: #1bbb1b
+$alert: #c7254e
+$border-color: #dedede
+$primary-font: 'Quicksand', 'Catamaran', sans-serif
+$base-font: 'Quicksand', 'Source Sans Pro', sans-serif
+$extra-font: 'Quicksand', sans-serif
+$icon-font: 'themefisher-font'
+
+$grad1: radial-gradient(#ffffff, #e8e8e8)
+$bd: 1.5px solid #e0e0e0
+
+$greyLight: #f0f1f5
+$greyLight1: #f5f5f5
+$greyLight2: #7b8c98
+$greyLight3: #f1f1f1
+$greyLight4: #acacac
+$greyLight5: #474d52
+
+$blueBg: #172136
+$blueLight: #2c3b62
+$blueDark: #0d1a28
+$yellow: #ffad00
+$orange: #ff5100
+$red: #f00
+//$green: #00BF5C
+$green: #009688
+$textBlue: #2c3b62
+
+$blueLight2: #c1e4ff
+$blue2: #0580ff
+$blue3: #276fa2
+
+$heroBg: $greyLight1
+$footerTopBg: $greyLight
+$footerMiddleBg: $blueDark
+$footerBtmBg: $blueLight
+
+$bxsd: 7px 14px 42px 3px rgba(163, 174, 184, 0.4)
+$bxsd2: 0 5px 15px rgba(0,0,0,.07)
+$bxsd3: 0 15px 25px -7px rgba(0,0,0,.09), 0 -12px 10px -10px rgba(0,0,0,.04)
+
+$FA: 'FontAwesome'
+$ffTxt: 'Montserrat', 'Ubuntu'
+$ffHeading: 'Montserrat', 'Igra Sans'
+$ffBack: Calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+
+=font($fz, $lh: 1.2, $fw: 300, $ff: $ffTxt)
+	$lh: $lh/$fz
+	$fz: $fz/16 + rem
+	$ff: $ff, $ffBack
+	font: $fw $fz +/$lh $ff 
+
+=flex($wrap, $align: center, $justify: center, $display: flex)
+	display: $display
+	flex-wrap: $wrap
+	align-items: $align
+	justify-content: $justify
+	
+
+=theme($theme)
+	@if $theme == dark
+		background: $blueDark
+		color: $white
+		h1, h2, h3, h4, h5, h6 
+			color: inherit
+
+	@if $theme == main
+		background: $blueLight
+		color: $white
+
+	@if $theme == light
+		background: var(--siteBg)
+		color: $white
+
+
+
+
+%scroll 
+	&::-webkit-scrollbar
+		width: 10px
+		height: 10px
+
+	&::-webkit-scrollbar-track
+		box-shadow: inset 0 0 6px rgba($blueDark, 0.3)
+		background-color: $blueDark
+
+	&::-webkit-scrollbar-thumb
+		background: $blueLight
+
+
+%after
+	position: relative
+	z-index: 1
+	&::before 
+		content: ""
+		position: absolute
+		left: 0
+		top: 0
+		display: block
+		width: 100%
+		height: 100%
+		z-index: 0
+		background-color: rgba($black, 0.5)
+
+
+body
+	display: flex
+	flex-direction: column
+	min-height: 100vh
+
+	overflow: hidden
+	overflow-y: scroll
+	@extend %scroll
+	
+	user-select: none
+	*::selection 
+		background-color: lighten($blueLight, 70%)
+
+.page-wrap
+	flex: 1 0 auto
+
+
+.bg-night
+	background-color: $blueBg !important
+	color: $white
+		
+	*	
+		
+		::selection 
+			background-color: $green
+
+
+	&.footer-top
+		border-color: $blueLight
+
+	.slider-nav > *
+		color: $main
+
+	.table-info-row 
+		border-color: $blueLight
+		&:hover, &:active, &:focus
+			background-color: transparent
+		&:nth-child(2n+1)
+			background-color: transparent
+		b
+			font-weight: 500
+			color: lighten($blueLight, 30%)
+
+	.page-single-content
+		color: $white
+		h1, h2, h3, h4, h5, h6
+			color: lighten($blueLight, 30%)
+		
+	.social_share-wrap button
+		font-weight: 500
+		border-color: $blueLight
+		&:hover, &:active, &:focus
+			background-color: transparent
+			border-color: $main
+			color: $main
+
+	.box
+		&-tags span
+			@include theme(main)
+			font-weight: 500
+		&-text-sm
+			color: lighten($blueBg, 30%)
+		&-text-xs 
+			color: lighten($blueLight, 30%)
+		&-subtitle
+			color: $white
+			font-size: 12px
+			font-weight: 500
+			letter-spacing: 1px
+
+	.bonus
+		&-info
+			background-color: $blueDark 
+		&-tags
+			background-color: transparent
+			color: lighten($blueLight, 10%)
+			
+	.bonus-promo-code, .slider-games-nav button
+		color: lighten($blueLight, 30%)
+
+	
+	.title
+		p
+			color: lighten($blueLight, 30%)
+
+	.product
+		&-title a
+			color: lighten($blueLight, 30%)
+		&-cat .tag 
+			background-color: $blueLight
+			color: lighten($blueLight, 30%)
+		&-cat
+			+theme(dark)
+
+	.game-slider-nav, .slider-nav
+		button
+			color: lighten($blueLight, 30%)
+
+	.btn
+		&-bd
+			border-color: lighten($blueLight, 30%)
+			color: lighten($blueLight, 30%)
+			&:hover
+				background-color: $white
+				border-color: $white
+				color: $primary-color
+			& > *
+				color: $main
+		&-text
+			&:hover, &:focus, &:active
+				color: $main
+		&-main
+			border: 1.5px solid $white
+
+	.subscribe-form button
+		background-color: $blueLight
+		&:hover, &:active, &:focus
+			background-color: $blueDark
+			border-color: transparent
+
+	
+
+
+.color
+	&-main
+		color: $main
+
+.bg
+	&-main
+		+theme(main)
+		border-top: none
+	&-light
+		background-color: $greyLight3
+		border: 1px solid darken($greyLight3, 5%)
+		border-width: 1px 0 
+	&-dark
+		&-blue
+			background-color: $blueDark
+			border-color: $blueDark
+			color: $white
+	&-gray
+		background: $secondary-color
+
+
+.text
+	&-gray
+		color: #898a8f
+	&-md 
+		font-size: 20px
+	&-color
+		color: $primary-color
+	&-label
+		display: inline-block
+		padding: 8px 15px
+		background: rgba($white,.3)
+		color: #222
+
+.miw
+	&-20, &-25
+		display: inline-block
+		vertical-align: middle
+	&-20
+		min-width: 20px
+	&-25
+		min-width: 25px
+
+.w
+	&-xl
+		&-50
+			width: auto
+			@media only screen and (max-width: 480px)
+				width: 100%
+.mb-40
+	margin-bottom: 35px
+
+.bxsd
+	box-shadow: $bxsd2
+	@media only screen and (max-width: 640px)
+		box-shadow: none
+

@@ -1,0 +1,166 @@
+<!-- BEGIN sidebar -->
+{{ $pages := first 40 (where .Site.RegularPages "Type" "game") }}
+
+
+<section class="widget widget-categories mb-2">
+
+       <!--  {{- if isset .Site.Params "game" }}
+        {{- if not (eq (len .Site.Params.games) 0) }}
+
+        <ul class="list-unstyled">
+          {{- range $name, $items := .Site.Params.games }}
+          <li>
+            <a class="cat-item d-lg-flex justify-content-between text-dark"
+            href="{{ "games/" | relLangURL }}{{ . | urlize | lower }}">{{ . | title | humanize }}<span> COUNT </span></a>
+          </li>
+          {{- end }}
+        </ul>
+
+        {{- end }}
+        {{- end }} -->
+
+        <div class="filters" id="filters-bonuses">
+          <!-- begin filter item -->
+          <nav class="filters-item">
+            <div class="filters-header" id="filters-target-1">
+              <h2 class="my-2">
+                <button class="widget-title h5 my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-1" aria-expanded="true" aria-controls="filters-1">
+                  {{ i18n "fltr4" }}
+                  <small class="ti-angle-down"></small>
+                </button>
+              </h2>
+            </div>
+            <div id="filters-1" class="collapse show" aria-labelledby="filters-target-1" data-parent="#filters-bonuses">
+              <div class="filters-body">
+                {{ $gameCategories := slice }}
+                {{ $gameCategory := slice }}
+
+                {{ range $pages }}
+                {{ range .Params.games }} 
+
+                {{ $gameCategories = $gameCategories | append . }} 
+
+
+                {{ end }}
+                {{ end }}
+
+                {{ $gameCategories = uniq $gameCategories | sort }}
+                <ul class="list-unstyled">
+                  {{ range $i, $cat := $gameCategories }}
+                  {{ $gameCategory := . }}
+                  <li>
+                    <a class="filters-filter d-lg-flex justify-content-between"
+                    href="{{ "games/" | relURL}}{{ . | title | urlize }}/">
+                    {{ . | title | humanize }}
+                    <span>
+                     {{ $cnt2 := slice }}
+                     {{ range  $d, $value := first 40  $pages }}
+                     {{ if (in .Params.games $gameCategory) }}
+                     {{ $cnt2 = $cnt2 | append $i }}
+                     {{ end }}
+                     {{ end }}
+                     [ {{ (len $cnt2) }} ]
+                   </span>
+                 </a>
+               </li>
+
+               {{ end }}
+             </ul>
+
+           </div>
+         </div>
+       </nav>
+
+     </div>
+
+       <!--  {{- if isset .Site.Taxonomies "games" }}
+        {{- if not (eq (len .Site.Taxonomies.games) 0) }}
+        <ul class="list-unstyled">
+          {{- range $name, $items := .Site.Taxonomies.game }}
+          <li>
+            <a class="cat-item d-lg-flex justify-content-between text-dark"
+            href="{{ "games/" | relLangURL }}{{ $name | urlize | lower }}">{{ $name | title | humanize }}<span>{{len $items}}</span></a>
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+        {{- end }} -->
+      </section>
+
+      <section class="widget widget-categories mb-2">
+
+       <div class="filters" id="filters-bonuses">
+        <!-- begin filter item -->
+        <nav class="filters-item">
+          <div class="filters-header" id="filters-target-2">
+
+            <button class="widget-title my-0 p-0" type="button" data-toggle="collapse" data-target="#filters-2" aria-expanded="true" aria-controls="filters-2">
+             <h2 class="h5  my-2">
+              {{ i18n "fltr6" }}
+
+              [&nbsp;<a href="{{ `providers/` | relLangURL }}" class="btn-link">All</a>&nbsp;]
+
+            </h2>
+            <small class="ti-angle-down"></small>
+          </button>
+
+        </div>
+        <div id="filters-2" class="collapse show" aria-labelledby="filters-target-2" data-parent="#filters-bonuses">
+          <div class="filters-body">
+
+
+            <ul class="list-unstyled">
+             {{ $gameProviders := slice }}
+             {{ range $pages }}
+             {{ if .Params.providers  }}
+             {{ $gameProviders =  uniq ($gameProviders | append .Params.providers) | sort }}
+             {{ end }}
+             {{ end }}
+
+             {{ range $ind, $el := $gameProviders  }}
+             {{ $provider := . }}
+             <li>
+               
+               {{ $pgGamesByProvider := slice }}
+               {{ range $pages }}
+               {{ if (in .Params.providers $provider) }}
+               {{ $pgGamesByProvider = uniq ( $pgGamesByProvider | append . ) | sort }}
+               {{ end }}
+               {{ end }}
+
+               <div class="filters-header" id="filters-target-provider-{{ $ind }}">
+
+                <button class="filters-filter p-0" type="button" data-toggle="collapse" data-target="#filters-provider-{{ $ind }}" aria-expanded="false" aria-controls="filters-provider-{{ $ind }}">
+                  <span>{{ . | title | humanize }}  [ {{ len $pgGamesByProvider }} ]</span>
+                  <small class="ti-angle-down"></small>
+                </button>
+
+              </div>
+              <div id="filters-provider-{{ $ind }}" class="collapse" aria-labelledby="filters-target-provider-{{ $ind }}" data-parent="#filters-bonuses">
+                <div class="filters-body">
+                 <ul class="list-unstyled">
+                  {{ range $pgGamesByProvider }}
+                  <li>
+                    <a class="filters-filter d-lg-flex justify-content-between"
+                    href="{{ .RelPermalink }}">
+                    {{ .Params.title | title }}
+                  </a>
+                </li>
+                {{ end }}
+              </ul>
+
+            </div>
+          </div>
+
+        </li>
+        {{ end }}
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
+
+</section>
+
+<!-- END sidebar -->

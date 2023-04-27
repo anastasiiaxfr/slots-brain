@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BonusFS on Slotman Brain</title>
+    <link>https://examplesite.com/bonusfs/</link>
+    <description>Recent content in BonusFS on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/bonusfs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>100</title>
+      <link>https://examplesite.com/bonusfs/100/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusfs/100/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>20</title>
+      <link>https://examplesite.com/bonusfs/20/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusfs/20/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>40</title>
+      <link>https://examplesite.com/bonusfs/40/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusfs/40/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>50</title>
+      <link>https://examplesite.com/bonusfs/50/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusfs/50/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>60</title>
+      <link>https://examplesite.com/bonusfs/60/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusfs/60/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>75</title>
+      <link>https://examplesite.com/bonusfs/75/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/bonusfs/75/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

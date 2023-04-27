@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BonusPM on Slotman Brain</title>
+    <link>https://examplesite.com/ru/bonuspm/</link>
+    <description>Recent content in BonusPM on Slotman Brain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 25 Nov 2019 13:39:07 +0600</lastBuildDate>
+    
+	<atom:link href="https://examplesite.com/ru/bonuspm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MC</title>
+      <link>https://examplesite.com/ru/bonuspm/mc/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuspm/mc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neteller</title>
+      <link>https://examplesite.com/ru/bonuspm/neteller/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuspm/neteller/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PayPal</title>
+      <link>https://examplesite.com/ru/bonuspm/paypal/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuspm/paypal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scrill</title>
+      <link>https://examplesite.com/ru/bonuspm/scrill/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuspm/scrill/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visa</title>
+      <link>https://examplesite.com/ru/bonuspm/visa/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuspm/visa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WM</title>
+      <link>https://examplesite.com/ru/bonuspm/wm/</link>
+      <pubDate>Mon, 25 Nov 2019 13:39:07 +0600</pubDate>
+      
+      <guid>https://examplesite.com/ru/bonuspm/wm/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

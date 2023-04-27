@@ -1,0 +1,88 @@
+{{ define "main" }}
+
+
+{{ partial "page-title.html" . }}
+
+<section class="bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 page-breadcrumb py-3">
+				{{ partial "breadcrumbs.html" . }}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container" {{ if (in .URL "/bonus" | or ( in .URL "/casinos" )) }} style="max-width: 1500px;" {{ end }}>
+
+		<main class="row">
+
+			<article class="col-lg-9">
+				
+				{{ if in .URL "/games" }}
+				{{ partial "_game-parent.html" . }}
+
+				{{ else }}
+				{{ if in .URL "/bonus" }}
+				{{ partial "_bonus-parent.html" . }}
+
+
+				{{ else }}
+				{{ if in .URL "/providers" }}
+				{{ partial "_provider-parent.html" . }}
+
+				{{ else }}
+				{{ if in .URL "/casinos" }}
+				{{ partial "_casino-parent.html" . }}
+				
+				{{ else }}
+				{{ if eq .URL "/affiliates" }}
+				{{ partial "_affiliate-list.html" . }}
+
+				{{ else }}
+
+
+
+				{{ end }}
+				{{ end }}
+				{{ end }}
+				{{ end }}
+				{{ end }}
+
+
+			</article>
+			<aside class="col-lg-3">
+				{{ if in .URL "/games" }}
+				{{ partial "_game-sidebar.html" . }}
+
+				{{ else }}
+
+				{{ if in .URL "/bonus" }}
+				{{ partial "_bonus-sidebar.html" . }}
+
+				{{ else }}
+
+				{{ if in .URL "/casinos" }}
+				{{ partial "_casino-sidebar.html" . }}
+
+				{{ else }}
+
+				{{ if in .URL "/providers" }}
+				{{ partial "_provider-sidebar.html" . }}
+
+				{{ else }}
+			
+				
+				{{ end }}
+				{{ end }}
+				{{ end }}
+				{{ end }}
+			</aside>
+
+			
+		</main>
+	</div>
+</section>
+
+{{ end }}

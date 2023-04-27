@@ -1,0 +1,110 @@
+<section class="row justify-content-center">
+
+	<div class="col-12">
+
+		{{ partial "_affiliate-table.html" . }}
+
+	</div>
+</section>
+
+
+<article class="py-4 py-sm-5">
+
+{{ $body := replace .Content .Summary "" }}
+
+{{ if .Summary }}
+<section class="col-md-8 mx-auto mb-4">
+	<h1 class="mb-3"> {{ .Title }} </h1>
+	{{ .Summary | plainify }}
+</section>
+{{ end  }}
+
+<section class="col-md-8 mx-auto">
+	{{ $length := len .Params.revenue_share }}
+
+
+	<div class="slider-wrap">
+
+		<div class="d-flex align-items-center justify-content-between text-center text-md-left mb-3">
+			<h4 class="my-0">
+				Revenue share
+			</h4>
+			<div class="slider-nav d-none d-sm-inline-flex row">
+				<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+				<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+			</div>
+		</div>
+
+		<div class="slider-revenue row my-0">
+			{{ range .Params.revenue_share }}
+			<div class="col-lg-3 col-md-4 col-sm-6">
+
+				<figure class="revenue my-0">
+
+					<p class="revenue-text-xl my-0"> {{ .percent }} </p>
+					<p class="revenue-text-md my-0"> {{ .value }} <small> {{ .currency }} </small></p>
+					{{ if .btc }}
+					<p class="revenue-text-sm my-0"> {{ .btc }}	<small>BTC</small> </p>
+					{{ end }}
+
+
+				</figure>
+
+			</div>
+			{{ end }}
+		</div>
+
+	</div>
+
+</section>
+
+<article class="col-md-8 mx-auto">
+
+	{{ partial "_show-more.html" . }}
+
+</article>
+
+
+
+{{ if ( .Params.good | or .Params.bad )  }}
+
+<section class="col-md-8 mx-auto mt-4">
+	<div class="row">
+
+		{{ if .Params.good }}	
+		<div class="col-lg-6 affiliate-list mb-3">
+
+			<h3 class="h5 mb-3">
+				Benefits
+			</h3>
+
+			{{ range .Params.good }}
+			<p class="my-2"> <small class="ti-check-box mr-2"> </small>{{ . }} </p>
+			{{ end }}
+
+		</div>
+		{{ end }}
+
+		{{ if .Params.bad }}
+		<div class="col-lg-6 affiliate-list mb-3">
+
+			<h3 class="h5 mb-3">
+				Negatives
+			</h3>
+
+			{{ range .Params.bad }}
+			<p class="my-2 text">
+				<small class="ti-alert mr-2"></small> {{ . }}
+			</p>
+
+			{{ end }}
+
+		</div>
+		{{ end }}
+
+	</div>
+</section>
+{{ end }}
+
+
+</article>

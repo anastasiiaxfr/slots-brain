@@ -1,0 +1,22 @@
+<!-- BEGIN news sidebar -->
+  <figure class="box-col-two">
+    <a class="box-col-two-pic" href={{ .Permalink }}>
+      {{ if .Params.feature }}
+      <img src="{{ .Params.feature }}" alt="{{ .Params.title }}"> {{ else }}
+      <img src="{{ `/images/background/all-news.jpg` | relURL }}" alt="{{ .Params.title }}"> 
+      {{ end }}
+    </a>
+    <a href="{{ .Permalink }}">
+     <span class="box-meta"> 
+      Category: ss |
+      By <b>{{ if .Params.author }}{{ .Params.author }} {{ else }} SlotsBrain admin {{ end }}</b> | 
+      Posted at <b>{{ .Lastmod.Format "2006-01-02 15:04"  }}</b>
+    </span>
+    <h3 class="box-col-two-title"> {{ .Params.title | truncate 80 }} </h3>
+    <p class="mb-3"> {{ .Summary | truncate 130  }} </p>
+
+  </a>
+  <a href="{{ .Permalink }}" class="btn btn-main btn-sm"> {{ i18n "btn-read-more" }} </a>
+</figure>
+
+<!-- END news sidebar -->

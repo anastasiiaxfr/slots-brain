@@ -1,0 +1,139 @@
+<head>
+
+  {{ $title := slice }}
+  {{ $description :=  slice }}
+
+  {{ if (.Params.title_before | or .Params.title_after) }}
+  {{ $title = $title | append .Params.title_before }}
+  {{ $title = $title | append .Title }}
+  {{ $title = $title | append .Params.title_after }}
+  {{ $title = delimit $title " " }}
+  {{ else }}
+  {{ $title = .Title }}
+  {{ end }}
+
+  {{ if (.Params.description_before | or .Params.description_after) }}
+  {{ $description = $description | append .Params.description_before }}
+  {{ $description = $description | append .Params.description }}
+  {{ $description = $description | append .Params.description_after }}
+  {{ $description = delimit $description " " }}
+  {{ else }}
+  {{ $description = .Params.description }}
+  {{ end }}
+
+  <meta charset="utf-8">
+  <title>{{ $title | truncate 60 }}</title>
+
+  {{ "<!-- mobile responsive meta -->" | safeHTML }}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="{{ $description | truncate 160 }}">
+
+
+  {{ with .Site.Params.author }}
+  <meta name="author" content="{{ . }}">{{ end }}
+
+  {{ "<!-- plugins -->" | safeHTML }}
+  {{ range .Site.Params.plugins.css }}
+  <link rel="stylesheet" href="{{ .URL | relURL }} ">
+  {{ end }}
+
+  {{ "<!-- Main Stylesheet -->" | safeHTML }}
+  {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+
+  {{ "<!--Favicon-->" | safeHTML }}
+  <link rel="shortcut icon" href="{{ `fav/favicon.ico` | relURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ `fav/apple-touch-icon.png` | relURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ `fav/favicon-32x32.png` | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ `fav/favicon-16x16.png` | relURL }}">
+  <!-- <link rel="manifest" href="./assets/fav/site.webmanifest"> -->
+  <meta name="msapplication-TileColor" content="#2c3b62">
+  <meta name="theme-color" content="#2c3b62">
+
+  {{ $paginator := .Paginator }}
+  {{ if $paginator }}
+  {{ if gt $paginator.PageNumber 1 }}
+  <link itemprop="url" rel="canonical" href="{{ $paginator.URL | relLangURL }}/">
+  {{ end }}
+  {{ end }}
+
+
+  {{ "<!--SEO-->" | safeHTML }}
+  <meta property="og:type" content="website" /> 
+
+  <meta property="og:title" content="{{ $title }} | {{ .Site.Title }}" />
+  <meta name="twitter:title" content="{{ $title }} | {{ .Site.Title }}" />
+  <meta name="application-name" content="{{ $title }} | {{ .Site.Title }}" />
+  <meta property="og:site_name" content="{{ .Site.Params.site_name }}" />
+
+  <meta property="og:description" content="{{ $description }}" />
+  <meta name="twitter:description" content="{{ $description }}" />
+
+  <meta name="url" content="{{ .RelPermalink }}" />
+  <meta name="twitter:url" content="{{ .RelPermalink }}" /> 
+  <meta property="og:url" content="{{ .RelPermalink }}" />
+
+  <meta property="og:locale" content="{{ .Language.Lang }}">
+  <meta name="language" content="{{ .Language.LanguageName }}">
+  {{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .RelPermalink }}" title="{{ .Language.LanguageName }}">
+  {{ end }}
+
+  {{ with .Params.seo_image }} 
+  <meta property="og:image" content="{{ . | relURL }}" /> 
+  <meta name="twitter:image" content="{{ . | relURL }}" />
+  <meta name="twitter:image:src" content="{{ . | relURL }}" /> 
+  {{ else }}
+  <meta property="og:image" content="{{ .Site.Params.og_image | relURL }}" />
+  <meta name="twitter:image" content="{{ .Site.Params.og_image | relURL }}" />
+  <meta name="twitter:image:src" content="{{ .Site.Params.og_image | relURL }}" /> 
+  {{ end }}
+
+  <meta property="og:updated_time" content={{ .Lastmod.Format "2006-01-02T15:04:05Z0700" | safeHTML }} />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ .Site.BaseURL }}sitemap.xml" /> 
+
+  {{ with .OutputFormats.Get "RSS" }}
+  <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  {{ end }}
+
+
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+
+  <script>
+    async function findCountry() {
+      try {
+        let response = await fetch('https://pro.ip-api.com/json/?fields=61439&key=I8UBVUsgUfkgf5j');
+        let data = await response.json();
+        currency = data.currency;
+        countryCode = data.countryCode;
+        countryName = data.country;
+
+        //alert ("IP data: " + countryName +"; " + countryCode);
+
+        let countryIs = document.getElementsByClassName('country');
+        for (let i = 0; i < countryIs.length; ++i) {
+          let item = countryIs[i];  
+          item.innerHTML = countryCode;
+        }
+
+        return (
+          currency, countryCode, countryName
+          );
+
+      }
+      catch(err){
+        // alert (" error ");
+      }
+    };
+    
+    findCountry().then(v => { 
+      countryCode;
+    });
+  </script>
+</head>

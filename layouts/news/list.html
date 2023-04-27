@@ -1,0 +1,71 @@
+{{ define "main" }}
+<article class="page-news">
+  {{ partial "page-title.html" . }}
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 page-breadcrumb py-3">
+          {{ partial "breadcrumbs.html" . }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="single-product py-3 py-sm-5">
+    <div class="container" style=" ">
+
+      <main class="row justify-content-center">
+        <article class="col-xl-8 col-md-8">
+          <div class="row">
+            {{ $pages := where .Site.RegularPages "Type" "news" }}
+            {{ $paginator := .Paginate $pages  }}
+            {{ range  $paginator.Pages }}
+            <section class="col-sm-6">
+              <figure class="box-col-two">
+                <a class="box-col-two-pic" href={{ .Permalink }}>
+                  {{ if .Params.feature }}
+                  <img src="{{ .Params.feature }}" alt="{{ .Params.title }}"> {{ else }}
+                  <img src="{{ `/images/background/all-news.jpg` | relURL }}" alt="{{ .Params.title }}"> 
+                  {{ end }}
+                </a>
+                <a href="{{ .Permalink }}">
+                 <span class="box-meta"> 
+                  Category:  {{ range first 1 .Params.categories }} <b class="text-uppercase"> {{ . }} </b>{{end }} |
+                  By <b>{{ if .Params.author }}{{ .Params.author }} {{ else }} SlotsBrain admin {{ end }}</b> | 
+                  Posted at <b>{{ .Lastmod.Format "2006-01-02 15:04"  }}</b>
+                </span>
+                <h3 class="box-col-two-title"> {{ .Params.title | truncate 80 }} </h3>
+                <p class="mb-3"> {{ .Summary | truncate 130  }} </p>
+
+              </a>
+              <a href="{{ .Permalink }}" class="btn btn-main btn-sm"> {{ i18n "btn-read-more" }} </a>
+            </figure>
+          </section>
+
+          {{ end }}
+        </div>
+
+
+        <div class="col-12">
+         {{ partial "pagination.html" . }}
+
+       </div>
+
+     </article>
+
+
+<aside class="col-xl-4 col-md-4 box-sidebar sticky">
+  <div class="sticky-inner">
+{{ partial "_news-sidebar.html" . }}
+</div>
+</aside>
+</main>
+
+
+</div>
+</section>
+
+
+</article>
+{{ end }}

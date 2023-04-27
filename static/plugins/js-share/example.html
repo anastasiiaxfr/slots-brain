@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Easy to use social networks and messenger apps sharing javascript library">
+    <meta name="author" content="Dmitry Elfimov <elfimov@gmail.com>">
+
+    <title>JS-Share</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<div class="container">
+
+    <div class="part-lead">
+        <h1>JS-Share</h1>
+        <p class="lead">
+            Easy to use social media share library. This project is intended to help you integrate sharing within your code.
+        <br><br>
+            Supports:
+            <ul>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>LinkedIn</li>
+            <li>VK</li>
+            <li>OKru</li>
+            <li>Google+</li>
+            <li>GoogleBookmarks</li>
+            <li>Reddit</li>
+            <li>Tumblr</li>
+            <li>Pinterest</li>
+            <li>Weibo</li>
+            <li>Baidu</li>
+            <li>Mail.Ru</li>
+            <li>Line.me</li>
+            <li>Telegram</li>
+            <li>WhatsApp</li>
+            <li>Viber</li>
+            <li>Skype</li>
+            <li>Email</li>
+        </ul>
+        </p>
+    </div>
+
+    <br><br>
+
+    <div class="part-example">
+    <p>Share:
+        <button class="btn btn-default social_share" data-type="fb">Facebook</button>
+        <button class="btn btn-default social_share" data-type="twitter">Twitter</button>
+        <button class="btn btn-default social_share" data-type="vk">VK.com</button>
+        <button class="btn btn-default social_share" data-type="ok">OK.ru</button>
+        <button class="btn btn-default social_share" data-type="mailru">Mail.Ru</button>
+        <button class="btn btn-default social_share" data-type="gplus">Google+</button>
+        <button class="btn btn-default social_share" data-type="googlebookmarks">Google Bookmarks</button>
+        <button class="btn btn-default social_share" data-type="livejournal">LiveJournal</button>
+        <button class="btn btn-default social_share" data-type="tumblr">Tumblr</button>
+        <button class="btn btn-default social_share" data-type="pinterest">Pinterest</button>
+        <button class="btn btn-default social_share" data-type="linkedin">LinkedIn</button>
+        <button class="btn btn-default social_share" data-type="reddit">Reddit</button>
+        <button class="btn btn-default social_share" data-type="mailru">Mail.ru</button>
+        <button class="btn btn-default social_share" data-type="weibo">Weibo</button>
+        <button class="btn btn-default social_share" data-type="line">Line.me</button>
+        <button class="btn btn-default social_share" data-type="skype">Skype</button>
+        <button class="btn btn-default social_share" data-type="telegram">Telegram</button>
+        <button class="btn btn-default social_share" data-type="whatsapp">Whatsapp</button>
+        <button class="btn btn-default social_share" data-type="viber">Viber</button>
+        <button class="btn btn-default social_share" data-type="email">Email</button>
+    </p>
+    </div>
+
+
+</div>
+
+<script src="src/jsshare.js"></script>
+<script><!--
+document.addEventListener("DOMContentLoaded", function(event) {
+  var shareItems = document.querySelectorAll('.social_share');
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.platform)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var isAndroid = /(android)/i.test(navigator.userAgent);
+  var options = {};
+  if (isIOS || isAndroid) {
+    options.link_telegram = 'tg://msg';
+    options.link_whatsapp = 'whatsapp://send';
+  }
+  for (var i = 0; i < shareItems.length; i += 1) {
+    shareItems[i].addEventListener('click', function share(e) {
+      console.log(this);
+      return JSShare.go(this, options);
+    });
+  }
+});
+--></script>
+</body>
+</html>

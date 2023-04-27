@@ -1,0 +1,75 @@
+<!-- BEGIN casinos -->
+
+
+
+{{ $pagesBonuses := where .Site.RegularPages "Type" "bonus" }}
+{{ $pagesGames := where .Site.RegularPages "Type" "game" }}
+{{ $pagesCasinos := where .Site.RegularPages "Type" "casino" }}
+
+{{ $paginator := .Paginate $pagesCasinos }}
+
+<article class="page-casinos">
+
+
+{{ partial "_casino-slider.html" . }} 
+
+
+<section class="section pt-2 pb-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 px-0">
+				<h2 class="h4">
+					{{ i18n "casinos-txt-1" }}
+				</h2>
+				<p>
+					{{ i18n "casinos-txt-2" }}
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="slider-wrap">
+	<div class="row align-items-center justify-content-between  mx-0  mb-2">
+		<h4 class="my-0"> 
+			<small class="miw-25 ti-settings color-main"></small> 
+			{{ i18n "txt26" }}
+		</h4>
+	</div>
+
+	<div class="row">
+		{{ range $paginator.Pages }}
+		<div class="col-sm-6">
+		 {{ partial "_casino-card.html" . }}
+		</div>
+		{{ end }}
+
+
+		<div class="col-12 mt-3">
+			{{ partial "pagination.html" . }}
+
+		</div>
+	</div>
+	
+</section>
+
+
+<section class="section py-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 px-0">
+				<h2 class="h4">
+					{{ i18n "casinos-txt-3" }} 
+				</h2>
+				<p>
+					{{ i18n "casinos-txt-4" }} 
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+</article>
+<!-- END casinos -->
+

@@ -1,0 +1,18 @@
+
+<section class="show-more-block py-2"> 
+	<div class="show-more-less">
+		{{ $body := replace .Content .Summary "" }}
+
+		{{ $body | safeHTML | truncate 250 }}
+	</div>
+	<div class="show-more-all d-none">
+		{{ $body := replace .Content .Summary "" }}
+
+		{{ $body | safeHTML }} 
+	</div>
+	
+	<button class="btn btn-sm btn-text show-more-toggle mt-2"> 
+		<span class=""> {{ i18n "show-more" }} </span> <span class="d-none"> {{ i18n "show-less" }} </span>
+	</button>
+	
+</section>

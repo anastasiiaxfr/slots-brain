@@ -1,0 +1,162 @@
+.footer {
+  padding-top:80px;
+  padding-bottom: 40px;
+  background: $extra-color;
+  &-top {
+   border-top: 1px solid darken($greyLight3, 5%);
+ }
+ .navbar-brand {
+  display: inline-block;
+  margin: 0px auto;
+  a, img {
+    display: block;
+    margin: 0 auto;
+    max-width: 150px;
+  }
+}
+&-nav {
+  padding: 0;
+  margin: 10px auto;
+  
+  li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0 auto;
+    a {
+      text-transform: uppercase;
+      color: inherit;
+      letter-spacing: 0.1em;
+      font-size: 14px;
+      padding: 5px 10px;
+      opacity: 0.5;
+      &:hover, &:focus, &:active {
+        color: $main;
+        opacity: 1;
+      }
+    }
+  }
+}
+.soc {
+  margin: 0px auto;
+  &-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px;
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid $primary-color;
+    background-color: $primary-color;
+    color: $white;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 1;
+    &:hover, &:focus, &:active {
+      background-color: $blueLight;
+      border-color: $blueLight;
+      color: $white; 
+    }
+  }
+}
+&-dark {
+  @include theme(dark);
+  h4, h5, h6 {
+    color: inherit;
+    margin: 0 auto 8px;
+  }
+  a {
+    color: rgba($white, 0.9);
+  }
+}
+&-btm-dark {
+  @include theme(main);
+  a {
+    color: rgba($white, 0.4);
+  }
+}
+}
+
+.footer-widget{
+  ul {
+    li{
+      //margin-bottom: 15px;
+
+      a{
+        color: inherit;
+
+        &:hover{
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+
+.social-icons{
+  a{
+    width: 48px;
+    height: 48px;
+    border: 1px solid $border-color;
+    display: inline-block;
+    text-align: center;
+    color: inherit;
+    padding-top: 8px;
+    border-radius:100%;
+  }
+}
+
+.footer-btm-links{
+  a{
+    color: inherit;
+    margin-left: 8px;
+  }
+}
+
+.copyright{
+ color: inherit;
+ font-size: 13px;
+ line-height: 1.3;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  input, button {
+    display: inline-block;
+    border: 1.5px solid $primary-color;
+    line-height: 1;
+    font-size: 13px;
+    padding: 16px 16px;
+    min-height: 48px;
+    //margin: 5px auto;
+    
+    margin: 5px auto;
+    @media only screen and (min-width: 768px){
+      max-width: 400px;
+      margin: 0;
+    }
+  }
+  button {
+    background-color: $primary-color;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    &:hover, &:focus, &:active {
+      background-color: $blueLight;
+      border-color: $blueLight;
+      color: $white; 
+    }
+     @media only screen and (max-width: 768px){ 
+      width: 100%;
+     }
+  }
+  input {
+    background-color: rgba($white, 0.1);
+    width: 100%;
+    
+  }
+}

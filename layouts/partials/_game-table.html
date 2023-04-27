@@ -1,0 +1,98 @@
+<section class="row mx-0 demo">
+	{{ if .Params.bg_image }}<img src="{{ .Params.bg_image | relURL }}" alt="{{ .Title }}" class="demo-cover">{{ end }}
+	<iframe src="{{ .Params.site }}" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" width="100%" class="demo-frame"></iframe>
+</section>
+
+<!-- BEGIN table -->
+<section class="table-info-row">
+	<div class="col-md-4 row my-1">
+		<b class="col-6"> 
+			{{ i18n "provider" }}: 
+		</b>
+		<span class="col-6"> 
+			{{ if .Params.providers }}
+			{{ .Params.providers }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-4 row my-1">
+		<b class="col-6">
+			{{ i18n "categories" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.games }}
+			{{ range .Params.games }} 
+			{{ . }}
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+
+	<div class="col-md-4 row my-1">
+		<b class="col-6">
+			{{ i18n "geo-restricted" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.geo_resrticted }}
+			{{ range .Params.geo_resrticted }} 
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+
+
+</section>
+<section class="table-info-row">
+
+	<div class="col-md-4 row my-1">
+		<b class="col-6">
+			{{ i18n "autoplay" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.autoplay }}
+			{{ .Params.autoplay }}
+			{{ else }}
+			No
+			{{ end }}
+		</span>
+	</div>
+	
+	<div class="col-md-4 row my-1">
+		<b class="col-6">
+			{{ i18n "multiplayer" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.multiplayer }}
+			{{ .Params.multiplayer }}
+			{{ else }}
+			-
+			{{ end }}
+		</span>
+	</div>
+
+
+	<div class="col-md-4 row my-1">
+		<b class="col-6">
+			{{ i18n "bonus" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.bonuses }}
+			{{ range .Params.bonuses }} 
+			{{ .Params.title }}
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+
+</section>
+
+<!-- END table -->

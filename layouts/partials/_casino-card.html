@@ -1,0 +1,163 @@
+<!-- BEGIN casino item -->
+
+{{ $pagesBonuses := where .Site.RegularPages "Type" "bonus" }}
+{{ $pagesGames := where .Site.RegularPages "Type" "game" }}
+{{ $pagesCasinos := where .Site.RegularPages "Type" "casino" }}
+
+
+<div class="col-sm-12 px-0">
+	<!-- casino item -->
+	<figure class="box row mx-0 my-3">
+		<a class="box-poster col-lg-3 px-0" href="{{ .RelPermalink | urlize }}">
+			<img src="{{ `/images/providers/`}}{{ .Title | urlize }}{{`.png`}}" alt="{{ .Title | title }}">
+		</a>
+
+		<figcaption class="box-content col-lg-9 row mx-0 align-items-center">
+			<div class="col-lg-8 px-0">
+
+				<div>
+					{{ if .Params.casinos }}
+					<a href="{{ .RelPermalink | urlize }}">
+						<span class="box-tags">
+							{{ range first 5 .Params.casinos }}
+							<span>{{ . | truncate 20 }}</span>
+							{{ end }}
+						</span>
+					</a>
+					{{ end }}
+					<a href="{{ .RelPermalink | urlize }}">
+						<h4 class="box-subtitle">
+							{{ .Title | truncate 20 }} 
+
+						</h4>
+					</a>
+					{{ if .Params.licences }}
+					<p class="box-text-sm">
+						<a href="{{ .RelPermalink | urlize }}">
+							<span>
+								{{ if .Params.providers }}
+								{{ i18n "providers" }}:
+								{{ $countProviders := slice }}
+
+								{{ range $Providers, $Providerss := .Params.providers }}
+								{{ $countProviders = $countProviders | append $Providers }}
+								{{ end }}
+
+								{{ len $countProviders }}
+								{{ end }}
+							</span>
+							<span class="mx-1">
+								{{ i18n "bonuses" }}:
+								{{ $el := .Title }}
+								{{ $countBonuses := slice }}
+								{{ range $pagesBonuses }}
+
+								{{ if (in .Params.casinos $el ) }}
+								{{  $countBonuses =  $countBonuses | append . }}
+								{{ else }}
+								{{ $countBonuses := 0 }}
+								{{ end }}
+								{{ end }}
+								{{ len  $countBonuses }}
+
+							</span>
+							<span>
+								{{ if .Params.withdrawals }}
+								PM:
+								{{ $countPM := slice }}
+
+								{{ range $PM, $PMs := .Params.withdrawals }}
+								{{ $countPM = $countPM | append $PM }}
+								{{ end }}
+
+								{{  len $countPM }}
+
+								{{ end }}
+
+							</span>
+							<span class="mx-1">
+								{{ if .Params.languages }}
+
+								Lang: 
+								{{ $countLang := slice }}
+
+								{{ range $lang, $langs := .Params.languages }}
+								{{ $countLang = $countLang | append $lang }}
+								{{ end }}
+
+								{{  len $countLang }}
+
+								{{ end }}
+							</span>
+						</a>
+					</p>
+					<p class="box-text-xs mb-1">
+						{{ i18n "licences" }}:
+						{{ range first 10 .Params.licences }}
+						<span>{{ . | truncate 15 }}</span>
+						{{ end }}
+					</p>
+
+					{{ end }}	
+					<h5 class="box-info">
+						{{ if .Params.support }}
+						<a href="{{ .Params.support }}?ref={{ .Site.Params.site_name }}">
+
+							{{ i18n "support" }}
+
+						</a>
+						{{ end }}
+						{{ if .Params.terms }}
+						| <a href="{{ .Params.terms }}?ref={{ .Site.Params.site_name }}"> 
+
+							{{ i18n "terms" }}
+
+						</a> 
+						{{ end }}
+						{{ if .Params.tournaments }}
+						| <a href="{{ .Params.tournaments }}?ref={{ .Site.Params.site_name }}">
+
+							{{ i18n "tournaments" }}
+
+						</a> 
+						{{ end }}
+						{{ if .Params.games_link }}
+						| <a href="{{ .Params.games_link }}?ref={{ .Site.Params.site_name }}">
+
+							{{ i18n "games" }}
+
+						</a> 
+						{{ end }}
+						{{ if .Params.bonuses_link }}
+						| <a href="{{ .Params.bonuses_link }}?ref={{ .Site.Params.site_name }}">
+
+							{{ i18n "bonuses" }}
+
+						</a>
+						{{ end }}
+					</h5>
+				</div>
+
+			</div>
+			<div class="col-lg-4 my-2 px-0 text-left text-lg-center">
+
+				<a class="btn btn-bg" href="{{ .Params.site }}?ref={{ .Site.Params.site_name }}">
+					
+					{{ i18n "btn-visit-casino" }}
+
+				</a>
+				<a href="{{ .RelPermalink | urlize }}" class="btn-text mx-2">
+					<i class="ti-search mr-1"></i> <span>
+						
+						{{ i18n "btn-read-review" }}
+						
+					</span>
+				</a>
+
+			</div>
+		</figcaption>
+	</figure>
+	<!-- /casino item -->
+</div>
+
+<!-- END casino item -->

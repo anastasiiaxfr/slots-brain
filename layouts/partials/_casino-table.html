@@ -1,0 +1,275 @@
+<!-- BEGIN table -->
+
+<section class="table-info-header px-0 px-sm-4">
+	
+	<a href="{{ .Params.site }}?ref={{ .Site.Params.site_name }}" class="d-block mx-auto mx-sm-0 my-1">
+
+		{{ range $ind, $el := .Params.logo }}
+		{{ if eq $ind 1 }}
+		<img src="{{ . | relURL }}" alt="{{ $.Params.title }}" width="140" class="d-block">
+		{{ end }}
+		{{ if eq $ind 0 }}
+		<img src="{{ . | relURL }}" alt="{{ $.Params.title }}" width="140" class="d-none">
+		{{ end }}
+		{{ end }}
+
+	</a>
+
+	<div class="mx-4 mx-sm-5 my-1 text-center">
+		<div>
+			<b class="mr-2"> {{ i18n "site" }}: </b>
+			<span>
+				{{ if .Params.site }}
+				<a href=" {{ .Params.site }}?ref={{ .Site.Params.site_name }}"> {{ .Params.site }} </a>
+				{{ else }}
+				{{ i18n "nofound" }}
+				{{ end }}
+			</span>
+		</div>
+
+		<div>
+			<b class="mr-2"> {{ i18n "support" }}: </b>
+
+			<span>
+				{{ if .Params.support }}
+				<a href="mailto:{{ .Params.support }}"> {{ .Params.support }} </a>
+				{{ else }}
+				{{ i18n "nofound" }}
+				{{ end }}
+
+			</span>
+
+		</div>
+	</div>	
+
+	<a href="{{ .Params.site }}?ref={{ .Site.Params.site_name }}" class="d-none d-sm-block btn btn-sm  btn-main"> 
+		{{ i18n "btn-visit-casino" }}
+	</a>
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6"> 
+			{{ i18n "type" }}: 
+		</b>
+		<span class="col-6"> 
+			{{ if .Params.casinos }}
+			{{ range .Params.casinos }}
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "affiliate" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.affiliate }}
+			{{ .Params.affiliate }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	
+	
+</section>
+
+<section class="table-info-row">
+
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "licences"}}: 
+		</b>
+		<span class="col-6">
+			{{ if  .Params.licences  }}
+			{{ range .Params.licences }} 
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "geo-restricted" }}: 
+		</b>
+		<span class="col-6">
+			{{ if  .Params.geo_resrticted  }}
+			{{ range first 10 .Params.geo_resrticted }} 
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "owner"}}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.owner }}
+			{{.Params.owner }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "established" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.established }}
+			{{ .Params.established }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	
+	
+
+	
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-sm-6">
+			{{ i18n "provider" }}:
+		</b>
+		<span class="col-sm-6">
+			{{ if .Params.providers }}
+			{{ range first 10 .Params.providers }} 
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-sm-6">
+			{{ i18n "fltr4" }}:
+		</b>
+		<span class="col-sm-6">
+			{{ if .Params.game }}
+			{{ range first 10 .Params.game }}
+			{{ . }},
+			{{ end }}
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+
+		</span>
+	</div>
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "currencies" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.currencies }}
+			{{ range first 10 .Params.currencies }}
+			{{ . }},
+			{{ end }}
+
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-6">
+			{{ i18n "languages" }}:
+		</b>
+		<span class="col-6">
+			{{ if .Params.languages }}
+			{{ range first 10 .Params.languages }}
+			{{ . }},
+			{{ end }}
+
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+</section>
+
+
+<section class="table-info-row">
+	<div class="col row my-1 px-1">
+		<b class="col-12 col-sm-3 px-4">
+			{{ i18n "pm" }}:
+		</b>
+		<span class="col-12 col-sm-9 px-4 px-sm-3">
+			{{ if (.Params.deposit | or ( .Params.withdrawals )) }}
+			{{ $PM := slice }}
+
+			{{ range .Params.deposit }}
+			{{ $PM = $PM | append . }}
+			{{ end }}
+
+			{{ range .Params.withdrawals }}
+			{{ $PM = $PM | append . }}
+			{{ end }}
+
+			{{ $PM = uniq $PM | sort }}
+
+			{{ range first 10 $PM }}
+			{{ . }},
+			{{ end }}
+
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+
+</section>
+
+<section class="table-info-row">
+	<div class="col-md-6 row my-1">
+		<b class="col-sm-6">
+			{{ i18n "times" }}:
+		</b>
+		<span class="col-sm-6">
+			{{ if .Params.withdrawal_times }}
+			{{ range .Params.withdrawal_times }}
+			{{ .val }} {{ .type }} <br>
+			{{ end }}
+
+			{{ else }}
+			{{ i18n "nofound" }}
+			{{ end }}
+		</span>
+	</div>
+	<div class="col-md-6 row my-1">
+		<b class="col-sm-6">
+			{{ i18n "limit" }}:
+		</b>
+		<span class="col-sm-6">
+			{{ if .Params.withdrawal_limit }}
+			{{ range .Params.withdrawal_limit }}
+			{{ .val }} {{ .currency }} per {{ .type }},
+			{{ end }}
+
+			{{ else }}
+			No Limits
+			{{ end }}
+		</span>
+	</div>
+</section>
+<!-- END table -->

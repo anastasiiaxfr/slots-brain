@@ -1,0 +1,52 @@
+<!-- BEGIN post nav -->
+<section class="d-flex align-items-center justify-content-center {{ if not (.PrevInSection | or .NextInSection) }} justify-sm-content-between {{ end }} flex-wrap">
+
+  <div class="d-flex align-items-center justify-content-between my-1 w-xl-50">
+    <a href="{{ .Site.BaseURL | relLangURL }}" class="btn-link-sm mr-4"> 
+      <small class="ti-angle-left"></small>
+      <span class="ml-2">
+
+       {{ i18n "btn-to-home" }}
+
+     </span> 
+   </a>
+
+   <a href="../" class="btn-link-sm"> 
+    <span class="mr-2">
+
+      {{ i18n "btn-to-back" }}
+
+    </span> 
+    <small class="ti-angle-right"></small>
+  </a>
+</div>
+
+
+{{ if (.PrevInSection | or .NextInSection) }}
+
+<div class="d-flex align-items-center justify-content-between my-1 w-xl-50">
+  {{ if .PrevInSection }}
+  <a href="{{.PrevInSection.Permalink}}" class="btn-link-sm">
+   <small class="ti-angle-left"></small>
+   <span class="ml-2">
+    {{ i18n "btn-to-prev" }}
+  </span>
+
+</a>
+{{ end }}
+{{ if .NextInSection }}
+<a href="{{.NextInSection.Permalink}}" class="btn-link-sm ml-4">
+
+ <span class="mr-2">
+  {{ i18n "btn-to-next" }}
+</span>
+<small class="ti-angle-right"></small>
+</a>
+{{ end }}
+
+</div>
+{{ end }}
+
+</section>   
+
+<!-- END post nav -->

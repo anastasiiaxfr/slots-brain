@@ -1,0 +1,31 @@
+<!-- hero -->
+<section class="hero d-none d-sm-block">
+  <div class="container">
+    <div class="row justify-content-center align-itemc-center px-3 py-5">
+     
+      <hgroup class="d-block w-100 text-center mb-sm-4 pb-0 pb-sm-0">
+       <h1> {{ i18n "txt14" }} </h1>
+       <h2 class="subtitle mb-0">
+          {{ i18n "txt15" }}
+       </h2>
+     </hgroup>
+     
+     <!-- search -->
+     <form action="{{`search` | relURL }}" class="search-form w-100 mx-auto ">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="search-fields col-md-10 d-none d-sm-flex flex-wrap flex-sm-nowrap justify-content-center">
+            <input type="search" id="" name="s" class="form-control" placeholder="Search..." />
+            <button class="mt-2 mt-sm-0" type="submit">{{ i18n "search" }}</button>
+          </div>
+          
+        </div>
+      </div>
+    </form>
+    <!-- /search -->
+
+  </div>
+
+</div>
+</section>
+<!-- /hero -->

@@ -1,0 +1,57 @@
+{{ $pagesBonuses := first 40 (where .Site.RegularPages "Type" "bonus") }}
+
+
+<section class="slider-wrap pb-0 mb-4">
+
+	{{ $cnt1 := slice }}
+	{{ range $a, $pagesBonuses }}
+	{{ if (in .Params.geo_allowed "UA") }}
+	{{ $cnt1 = $cnt1 | append $a }}
+
+	{{ end }}
+	{{ end }}
+
+	<div class="row align-items-center justify-content-between text-center text-sm-left mb-3 px-2">
+		<h4 class="my-0"> <small class="miw-25 ti-bookmark color-main"></small> {{ i18n "txt28" }} <span class="country">Ukraine</span> [{{ len $cnt1 }}]  </h4>
+		<div class="slider-nav d-none d-sm-inline-flex row px-2">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</div>
+	<div class="slider-bonuses-all-geo row">
+		{{ range $pagesBonuses }}
+		{{ if (in .Params.geo_allowed "UA") }}
+		
+		<div class="col-lg-4 col-md-6">
+			{{ partial "_bonus-card.html" . }}
+		</div>
+
+		{{ end }}
+		{{ end }}
+	</div>
+</section>
+
+<section class="slider-wrap pb-0 mb-4">
+	{{ $cnt2 := slice }}
+	{{ range $b, $val := first 16 $pagesBonuses }}
+	{{ $cnt2 = $cnt2 | append $b }}
+	{{ end }}
+	<hgroup class="row align-items-center justify-content-between text-center text-sm-left mb-3 px-2">
+		<h2 class="h4 my-0"> 
+			<small class="miw-25 ti-bookmark color-main"></small>{{ i18n "txt27" }} [{{ len $cnt2 }}]  
+		</h2>
+		<div class="slider-nav d-none d-sm-inline-flex row px-2">
+			<button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+			<button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+		</div>
+	</hgroup>
+
+	<div class="slider-bonuses-all-new row">
+		{{ range first 16 $pagesBonuses }}
+		<div class="col-lg-4 col-sm-12 col-md-6 order-1 order-lg-0">
+			{{ partial "_bonus-card.html" . }}
+		</div>
+		{{ end }}
+	</div>
+
+</section>

@@ -1,0 +1,55 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{ range .Data.Pages }}
+  <url>
+    <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
+    <lastmod>{{ safeHTML ( .Lastmod.Format "20018-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}
+
+    {{ with .Sitemap.ChangeFreq }}
+    <changefreq>{{ . }}</changefreq>
+    {{ end }}
+
+    {{ if ge .Sitemap.Priority 0.0 }}
+    
+
+    {{ if eq .Permalink .Site.BaseURL }}
+    
+    <priority> 1 </priority>
+
+    {{ end }}
+
+
+    {{ $urlCheck := .Permalink | relURL }}
+    {{ $urlSub2 := findRE "([^/]+).*" .Permalink 1 }}
+
+    {{ $urlSubFix := replaceRE "^https?://[^/]*?((?:/[^/]*?){2})$" "$1" .Permalink }}
+
+
+    {{ if eq $urlCheck $urlSubFix  }}
+    <priority> 0.8 </priority>
+    {{ end }}
+    
+
+    {{ if not ( eq .Permalink .Site.BaseURL | or ( eq $urlCheck $urlSubFix )) }}
+    <priority> 0.6 </priority>
+    {{ end }}
+
+
+
+    {{ end }}
+
+    {{ if .IsTranslated }}{{ range .Translations }}
+    <xhtml:link
+      rel="alternate"
+      hreflang="{{ .Lang }}"
+      href="{{ .Permalink }}"
+      />{{ end }}
+      <xhtml:link
+        rel="alternate"
+        hreflang="{{ .Lang }}"
+        href="{{ .Permalink }}"
+        />{{ end }}
+      </url>
+      {{ end }}
+    </urlset>

@@ -1,0 +1,131 @@
+<article class="page-games">
+
+{{ $pagesGames := first 40 (where .Site.RegularPages "Type" "game") }}
+ 
+            <section class="slider-wrap mb-3">
+
+              {{ $cnt1 := slice }}
+              {{ range $k, $pagesGames }}
+              {{ if (in .Params.geo "UA") }}
+              {{ $cnt1 = $cnt1 | append $k }}
+
+              {{ end }}
+              {{ end }}
+
+              <div class="row align-items-center justify-content-between text-center text-sm-left mb-3 px-2">
+                <h2 class="h5 my-0"> 
+                  <small class="miw-20 ti-star color-main"></small> {{ i18n "txt22" }} <span class="country"> Ukraine</span> [{{ len $cnt1 }}] 
+                </h2>
+                <div class="slider-games-nav d-none d-sm-inline-flex row px-2">
+                  <button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+                  <button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+                </div>
+              </div>
+
+              <!-- slider games -->
+              <div class="slider-games-all-geo row">
+
+                {{ range $pagesGames }}
+                {{ if (in .Params.geo "UA") }}
+                
+                  {{ partial "_game-card.html" . }}
+
+                {{ end }}
+                {{ end }}
+
+              </div>
+              <!-- /slider-games -->
+            </section>
+        
+            <section class="slider-wrap mb-2">
+
+              {{ $cnt2 := slice }}
+              {{ range $n, $val := first 16 $pagesGames }}
+              {{ $cnt2 = $cnt2 | append $n }}
+              {{ end }}
+              <div class="row align-items-center justify-content-between text-center text-md-left mb-3 px-2">
+                <h2 class="h5 my-0"> 
+                  <small class="miw-20 ti-star color-main"></small> {{ i18n "txt23" }} [{{ len $cnt2 }}] 
+                </h2>
+                <div class="slider-games-nav d-none d-sm-inline-flex row px-2">
+                  <button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+                  <button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+                </div>
+              </div>
+
+
+              <!-- slider games -->
+              <div class="slider-games-all-new row">
+                {{ range first 16 $pagesGames }}
+
+                  {{ partial "_game-card.html" . }}
+
+                {{ end }}
+
+              </div>
+              <!-- /slider-games -->
+            </section>
+         
+
+
+            {{ $gameCategories := slice }}
+            {{ $gameCategory := slice }}
+
+            {{ range $pagesGames }}
+            {{ range .Params.games }} 
+
+            {{ $gameCategories = $gameCategories | append . }} 
+
+
+            {{ end }}
+            {{ end }}
+
+            {{ $gameCategories = uniq $gameCategories | sort }}
+
+            {{ range $i, $cat := $gameCategories }}
+            {{ $gameCategory := . }}
+
+            {{ $gameNumb := slice }}
+
+            {{ $cnt := slice }}
+            {{ range  $d, $value := first 40  $pagesGames }}
+            {{ if (in .Params.games $gameCategory) }}
+            {{ $cnt = $cnt | append $i }}
+            {{ end }}
+            {{ end }}
+            {{ $gameNumb = $gameNumb | append (len $cnt) }}
+
+            {{ if gt (len $cnt) 4  }}
+
+            <section class="slider-wrap">
+              
+              <div class="row align-items-center justify-content-between text-center text-sm-left mb-3 px-2">
+                <h2 class="h5 my-0">
+                 <small class="miw-20 ti-star color-main"></small> {{ . | title }} 
+                  {{ $gameNumb }} 
+                </h2>
+                <div class="slider-games-nav d-none d-sm-inline-flex row px-2">
+                  <button rel="prev" type="button" class="prev"><i class="ti-angle-left"></i></button>
+                  <button rel="next" type="button" class="next"><i class="ti-angle-right"></i></button>
+                </div>
+              </div>
+              <div class="slider-games-all-{{$cat}} mb-2 row" id="all-{{ $cat }}">
+
+                {{ range  $value := first 40  $pagesGames }}
+                {{ if (in .Params.games $gameCategory) }}
+                  {{ partial "_game-card.html" . }}
+
+                {{ end }}
+                {{ end }}
+
+
+                <!--  {{ len $cnt }} -->
+              </div>
+            </section>
+
+            {{ end }}
+            {{ end }}
+
+  
+
+</article>
